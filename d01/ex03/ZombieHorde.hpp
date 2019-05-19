@@ -8,6 +8,7 @@ class ZombieHorde
 public:
 	ZombieHorde(int n);
 	~ZombieHorde();
+	void		announce(void);
 
 private:
 	Zombie*	_zombies;

@@ -22,11 +22,16 @@ ZombieHorde::ZombieHorde(int n)
 	{
 		this->_zombies[i].setName(names[rand() % 10]);
 		this->_zombies[i].setType("Drunkhead");
-		this->_zombies[i].announce();
 	}
 }
 
 ZombieHorde::~ZombieHorde()
 {
 	delete[] this->_zombies;
+}
+
+void	ZombieHorde::announce(void)
+{
+	for (int i = 0; i < this->_n; i++)
+		this->_zombies[i].announce();
 }
