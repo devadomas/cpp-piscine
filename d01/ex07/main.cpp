@@ -73,6 +73,11 @@ int				main(int argc, char const **argv)
 	std::string	*text = NULL;
 	std::string output;
 
+	if (s1.length() == 0 || s2.length() == 0)
+	{
+		std::cout << "replace: [s1] and [s2] cannot be empty!" << std::endl;
+		return (RETURN_FAIL);
+	}
 	if (!readFromFile(&text, filename))
 		return (RETURN_FAIL);
 	output = searchReplace(*text, s1, s2);
