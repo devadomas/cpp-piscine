@@ -6,7 +6,7 @@
 /*   By: azaliaus <azaliaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 23:12:49 by azaliaus          #+#    #+#             */
-/*   Updated: 2019/04/04 23:13:22 by azaliaus         ###   ########.fr       */
+/*   Updated: 2019/05/20 10:31:38 by azaliaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	enterContactInfo(Contact *contact, bool (Contact::*f)(std::string), std::st
 			std::cout << "Are you sure? [Y/n]: ";
 			std::getline(std::cin, input);
 			if (input.length() == 0 || input.compare("Y") == 0)
-				return (false);
+				return false;
 			else
 				std::cout << text << ": ";
 		}
@@ -42,7 +42,7 @@ bool	enterContactInfo(Contact *contact, bool (Contact::*f)(std::string), std::st
 				std::cout << text << ": ";
 			}
 			else
-				return (true);
+				return true;
 		}
 	}
 }

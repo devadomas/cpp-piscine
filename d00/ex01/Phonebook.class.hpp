@@ -6,7 +6,7 @@
 /*   By: azaliaus <azaliaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 18:45:01 by azaliaus          #+#    #+#             */
-/*   Updated: 2019/04/04 23:14:06 by azaliaus         ###   ########.fr       */
+/*   Updated: 2019/05/20 10:31:15 by azaliaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Phonebook
 {
 public:
 	Phonebook(void);
+	~Phonebook(void);
 	bool	addContact(Contact contact);
 	int		getSize(void) const;
 	Contact	getContactById(int id) const;

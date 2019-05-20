@@ -6,7 +6,7 @@
 /*   By: azaliaus <azaliaus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 18:46:30 by azaliaus          #+#    #+#             */
-/*   Updated: 2019/04/04 23:15:26 by azaliaus         ###   ########.fr       */
+/*   Updated: 2019/05/20 10:30:54 by azaliaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 Phonebook::Phonebook(void)
 {
 	this->_size = 0;
-	return ;
 }
+
+Phonebook::~Phonebook(void) {}
 
 bool		Phonebook::addContact(Contact contact)
 {
 	if (this->_size >= 8)
-		return (false);
+		return false;
 	this->_clist[this->_size++] = contact;
-	return (true);
+	return true;
 }
 
 int			Phonebook::getSize(void) const
