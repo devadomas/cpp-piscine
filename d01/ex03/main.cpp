@@ -5,7 +5,6 @@
 
 int				main(void)
 {
-	std::srand(std::time(nullptr));
 	try
 	{
 		ZombieHorde zHorde(10);
