@@ -23,6 +23,11 @@ void	phonebookShowContact(Phonebook *book)
 
 void	phonebookShowContacts(Phonebook *book)
 {
+	if (!book->getSize())
+	{
+		std::cout << "There is nothing there yet!" << std::endl;
+		return ;
+	}
 	std::cout << std::right << std::setw(DISPLAY_CONTACTS_SIZE) << "index" << "|" <<
 			std::setw(DISPLAY_CONTACTS_SIZE) << "first name" << "|" <<
 			std::setw(DISPLAY_CONTACTS_SIZE) << "last name" << "|" <<
