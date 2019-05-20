@@ -43,7 +43,6 @@ void		Account::makeDeposit(int deposit)
 				<< "deposit:" << deposit << ";"
 				<< "amount:" << this->_amount << ";"
 				<< "nb_deposits:" << this->_nbDeposits << std::endl;
-
 }
 
 bool		Account::makeWithdrawal(int withdrawal)
@@ -101,7 +100,6 @@ void		Account::displayAccountsInfos(void)
 				<< "total:" << Account::getTotalAmount() << ";"
 				<< "deposits:" << Account::getNbDeposits() << ";"
 				<< "withdrawals:" << Account::getNbWithdrawals() << std::endl;
-
 }
 
 void		Account::displayStatus(void) const
