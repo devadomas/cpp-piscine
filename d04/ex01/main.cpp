@@ -9,6 +9,11 @@
 
 int			main(void)
 {
+	/*
+		TODO: Write A MAIN AND TESTS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		Create logger or something!
+	*/
+
 	Character* zaz = new Character("zaz");
 	std::cout << *zaz;
 
