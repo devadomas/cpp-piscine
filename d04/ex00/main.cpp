@@ -19,5 +19,7 @@ int		main(void)
 	Sorcerer		john(robert); // Test for copy constructor
 	// john = robert; // test for assignation operator
 	john.polymorph(jim);
+
+	// add some tests with Victum(more) and some Peon(very little)
 	return (0);
 }
