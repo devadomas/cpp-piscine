@@ -14,5 +14,10 @@ int		main(void)
 
 	robert.polymorph(jim);
 	robert.polymorph(joe);
+
+	std::cout << "Test's begone!!!" << std::endl;
+	Sorcerer		john(robert); // Test for copy constructor
+	// john = robert; // test for assignation operator
+	john.polymorph(jim);
 	return (0);
 }

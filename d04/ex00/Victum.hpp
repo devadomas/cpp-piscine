@@ -7,9 +7,13 @@
 class Victum
 {
 public:
+	Victum(void);
 	Victum(std::string name);
+	Victum(Victum const & src);
 	virtual ~Victum(void);
+	Victum &		operator=(Victum const & src);
 	std::string		getName(void) const;
+	bool			setName(std::string const & name);
 	virtual void	getPolymorphed(void) const;
 
 private:
