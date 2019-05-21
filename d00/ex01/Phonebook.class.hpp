@@ -1,9 +1,9 @@
 #ifndef PHONEBOOK_CLASS_HPP
 # define PHONEBOOK_CLASS_HPP
 
-# include "Contact.class.hpp"
 # include <iostream>
 # include <iomanip>
+# include "Contact.class.hpp"
 
 # define DISPLAY_CONTACT_SIZE	17
 # define DISPLAY_CONTACTS_SIZE	10

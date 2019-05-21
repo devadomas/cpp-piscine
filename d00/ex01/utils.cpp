@@ -1,5 +1,5 @@
-#include "Phonebook.class.hpp"
 #include <string>
+#include "Phonebook.class.hpp"
 
 std::string 	prepString(std::string str)
 {

@@ -1,7 +1,7 @@
-#include "Phonebook.class.hpp"
-#include "Contact.class.hpp"
 #include <string>
 #include <iostream>
+#include "Phonebook.class.hpp"
+#include "Contact.class.hpp"
 
 bool	enterContactInfo(Contact *contact, bool (Contact::*f)(std::string), std::string text)
 {

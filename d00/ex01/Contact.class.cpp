@@ -70,10 +70,6 @@ std::string		Contact::getEmail(void) const
 	return this->_email;
 }
 
-
-/*
-**	TODO: Maybe add verification
-*/
 bool			Contact::setEmail(std::string email)
 {
 	if (email.length() == 0)
