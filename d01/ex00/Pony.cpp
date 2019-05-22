@@ -1,5 +1,5 @@
-#include "Pony.hpp"
 #include <iostream>
+#include "Pony.hpp"
 
 Pony::Pony(std::string name): _name(name)
 {
@@ -7,25 +7,31 @@ Pony::Pony(std::string name): _name(name)
 	this->_age = 0;
 }
 
-Pony::~Pony()
+Pony::~Pony(void)
 {
-	std::cout << "Pony with a name " << this->_name << " died..." << std::endl;
-	std::cout << "Kidna sad..." << std::endl;
+	std::cout << "Pony with a name " << this->_name << " died... Kidna sad..." << std::endl;
 }
 
-bool Pony::setAge(int age)
+bool 	Pony::setAge(int age)
 {
 	if (age < 0)
 	{
 		std::cout << "It's impossible to set negatve age for Pony(" << this->_name << ")" << std::endl;
-		return (false);
+		return false;
 	}
 	this->_age = age;
 	std::cout << "Setting age for Pony(" << this->_age << ")" << std::endl;
-	return (true);
+	return true;
 }
 
-int Pony::getAge() const
+int 	Pony::getAge(void) const
 {
-	return (this->_age);
+	return this->_age;
+}
+
+void	Pony::display(void) const
+{
+	std::cout << "Pony specs:" << std::endl
+				<< "Name: " << this->_name << std::endl
+				<< "Age: " << this->_age << std::endl;
 }

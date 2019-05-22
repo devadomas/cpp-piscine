@@ -1,8 +1,8 @@
 .PHONY: 		all clean fclean re
 
-NAME 		= 	zombies
+NAME 		= 	ponies
 
-SRCS		=	Zombie.cpp ZombieEvent.cpp main.cpp
+SRCS		=	Pony.cpp main.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 CC 			=	clang++
