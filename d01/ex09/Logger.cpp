@@ -22,7 +22,7 @@ void			Logger::logToFile(std::string const & str) const
 		out.close();
 	}
 	else
-		std::cerr << this->_file << ": cannot open file" << std::endl;
+		std::cerr << this->_filename << ": " << std::strerror(errno) << std::endl;
 }
 
 std::string		Logger::makeLogEntry(std::string const & str) const
