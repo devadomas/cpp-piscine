@@ -3,14 +3,26 @@
 #include <sstream>
 #include <sys/stat.h>
 
-static bool		isDirectory(std::string const & filename)
-{
-    struct stat buf;
-	char f[filename.length() + 1];
+static bool	isDirectory( std::string const filename ) {
+	int				len;
+	std::ifstream	ifs;
 
-	strcpy(f, filename.c_str());
-    stat(f, &buf);
-    return S_ISDIR(buf.st_mode);
+	ifs.open(filename);
+
+	if (!ifs.is_open())
+		return false;
+
+	ifs.seekg(0, ifs.end);
+	len = ifs.tellg();
+	ifs.seekg(0, ifs.beg);
+	char	buff[len];
+	ifs.read(buff, len);
+	if (!ifs) {
+		ifs.close();
+		return true;
+	}
+	ifs.close();
+	return false;
 }
 
 static void		readFromFile(std::string const & filename)
