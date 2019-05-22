@@ -12,6 +12,10 @@ public:
 	NinjaTrap(NinjaTrap const & src);
 	NinjaTrap &		operator=(NinjaTrap const & src);
 
+	void			ninjaShoebox(ClapTrap const & enemy);
+	void			ninjaShoebox(FragTrap const & enemy);
+	void			ninjaShoebox(ScavTrap const & enemy);
+	void			ninjaShoebox(NinjaTrap const & enemy);
 private:
 	NinjaTrap(void);
 };
