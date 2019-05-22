@@ -13,6 +13,9 @@ public:
 
 	// personal attack
 	void		challengeNewcomer(std::string const & target);
+
+private:
+	ScavTrap(void);
 };
 
 std::ostream & 	operator<<(std::ostream & o, ScavTrap const & scav);
