@@ -1,5 +1,5 @@
-#ifndef HUMAN_CLASS_HPP
-# define HUMAN_CLASS_HPP
+#ifndef HUMAN_HPP
+# define HUMAN_HPP
 
 # include <string>
 # include "Brain.hpp"

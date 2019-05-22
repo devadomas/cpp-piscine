@@ -1,5 +1,5 @@
-#ifndef BRAIN_CLASS_HPP
-# define BRAIN_CLASS_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <string>
 
