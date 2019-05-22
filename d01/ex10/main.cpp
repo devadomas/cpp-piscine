@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <sys/stat.h>
 
 static bool     isDirectory(std::string const filename)
 {
