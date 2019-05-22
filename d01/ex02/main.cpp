@@ -40,6 +40,10 @@ int				main(void)
 	std::srand(std::time(nullptr));
 	// zombie on stack
 	randomChump();
+	randomChump();
+	randomChump();
+	randomChump();
+	randomChump();
 	// zombie on heap
 	zombieOnHeap();
 }
