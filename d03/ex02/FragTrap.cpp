@@ -53,10 +53,16 @@ void				FragTrap::vaulthunter_dot_exe(std::string const & target)
 	}
 }
 
-std::ostream & 	operator<<(std::ostream & o, FragTrap const & frag)
+std::ostream & 	operator<<(std::ostream & o, FragTrap const & clap)
 {
-	o << "FR4G-TP " << frag.getName() << " status -> " <<
-		"Hit:" << frag.getHP() << ";"
-		"EnergyPoints:" << frag.getEnergyPoints() << std::endl;
+	o << "FR4G-TP " << clap.getName() << " has stats of: " << std::endl
+		<< "HP: " << clap.getHP() << std::endl
+		<< "Max HP: " << clap.getMaxHP() << std::endl
+		<< "Energy Points: " << clap.getEnergyPoints() << std::endl
+		<< "max Energy Points: " << clap.getMaxEnergyPoints() << std::endl
+		<< "level: " << clap.getLevel() << std::endl
+		<< "melee Damage: " << clap.getMeleeDamage() << std::endl
+		<< "ranged Attack Damage: " << clap.getRangedAttack() << std::endl
+		<< "armour: " << clap.getArmour() << std::endl;
 	return o;
 }

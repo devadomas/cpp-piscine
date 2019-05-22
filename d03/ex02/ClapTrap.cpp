@@ -42,50 +42,26 @@ ClapTrap &		ClapTrap::operator=(ClapTrap const & src)
 	return *this;
 }
 
-int				ClapTrap::getHP(void) const
-{
-	return this->_valueHit;
-}
+int				ClapTrap::getHP(void) const { return this->_valueHit; }
+int				ClapTrap::getEnergyPoints(void) const { return this->_energyPoints; }
+std::string		ClapTrap::getName(void) const { return this->_name; }
+int				ClapTrap::getMaxHP(void) const { return this->_maxHit; }
+int				ClapTrap::getMaxEnergyPoints(void) const { return this->_maxEnergyPoints; }
+int				ClapTrap::getLevel(void) const { return this->_level; }
+int				ClapTrap::getMeleeDamage(void) const { return this->_meleeDamage; }
+int				ClapTrap::getRangedAttack(void) const { return this->_rangedAttack; }
+int				ClapTrap::getArmour(void) const { return this->_armor; }
 
-int				ClapTrap::getEnergyPoints(void) const
-{
-	return this->_energyPoints;
-}
+void			ClapTrap::setHP(int value) { this->_valueHit = value; }
+void			ClapTrap::setEnergyPoints(int value) { this->_energyPoints = value; }
+void			ClapTrap::setName(std::string const & name) { this->_name = name; }
+void			ClapTrap::setMaxHP(int value) { this->_maxHit = value; }
+void			ClapTrap::setMaxEnergyPoints(int value) { this->_maxEnergyPoints = value; }
+void			ClapTrap::setLevel(int value) { this->_level = value; }
+void			ClapTrap::setMeleeDamage(int value) { this->_meleeDamage = value; }
+void			ClapTrap::setRangedAttack(int value) { this->_rangedAttack = value; }
+void			ClapTrap::setArmour(int value) { this->_armor = value; }
 
-std::string		ClapTrap::getName(void) const
-{
-	return this->_name;
-}
-
-int				ClapTrap::getMaxHP(void) const
-{
-	return this->_maxHit;
-}
-
-int				ClapTrap::getMaxEnergyPoints(void) const
-{
-	return this->_maxEnergyPoints;
-}
-
-int				ClapTrap::getLevel(void) const
-{
-	return this->_level;
-}
-
-int				ClapTrap::getMeleeDamage(void) const
-{
-	return this->_meleeDamage;
-}
-
-int				ClapTrap::getRangedAttack(void) const
-{
-	return this->_rangedAttack;
-}
-
-int				ClapTrap::getArmour(void) const
-{
-	return this->_armor;
-}
 
 void			ClapTrap::rangedAttack(std::string const & target)
 {
@@ -134,8 +110,8 @@ std::ostream & 	operator<<(std::ostream & o, ClapTrap const & clap)
 		<< "HP: " << clap.getHP() << std::endl
 		<< "Max HP: " << clap.getMaxHP() << std::endl
 		<< "Energy Points: " << clap.getEnergyPoints() << std::endl
-		<< "max Energy Points" << clap.getMaxEnergyPoints() << std::endl
-		<< "level :" << clap.getLevel() << std::endl
+		<< "max Energy Points: " << clap.getMaxEnergyPoints() << std::endl
+		<< "level: " << clap.getLevel() << std::endl
 		<< "melee Damage: " << clap.getMeleeDamage() << std::endl
 		<< "ranged Attack Damage: " << clap.getRangedAttack() << std::endl
 		<< "armour: " << clap.getArmour() << std::endl;

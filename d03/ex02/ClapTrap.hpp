@@ -38,6 +38,16 @@ public:
 	int			getRangedAttack(void) const;
 	int			getArmour(void) const;
 
+	void		setHP(int value);
+	void		setEnergyPoints(int value);
+	void		setName(std::string const & name);
+	void		setMaxHP(int value);
+	void		setMaxEnergyPoints(int value);
+	void		setLevel(int value);
+	void		setMeleeDamage(int value);
+	void		setRangedAttack(int value);
+	void		setArmour(int value);
+
 protected:
 	ClapTrap(void);
 
