@@ -8,7 +8,10 @@ void memoryLeak()
 	delete panthere; // deletion of memory leak
 }
 
+/*
+//	main() for correction
 int main()
 {
 	memoryLeak();
 }
+*/
