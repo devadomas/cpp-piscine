@@ -1,7 +1,10 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) { }
+ClapTrap::ClapTrap(void)
+{
+	std::cout << "ClapTrap default(empty) constructor has been called" << std::endl;
+}
 
 ClapTrap::ClapTrap(
 	std::string const & name,
@@ -16,9 +19,14 @@ ClapTrap::ClapTrap(
 ):	_name(name), _valueHit(valueHit), _maxHit(maxHit), _energyPoints(energyPoints),
 	_maxEnergyPoints(maxEnergyPoints), _level(level), _meleeDamage(meleeDamage),
 	_rangedAttack(rangedAttack), _armor(armor)
-{ }
+{
+	std::cout << "ClapTrap constructor has been called name: " << name << std::endl;
+}
 
-ClapTrap::~ClapTrap(void) { }
+ClapTrap::~ClapTrap(void)
+{
+	std::cout << "ClapTrap destructor has been called" << std::endl;
+}
 
 ClapTrap::ClapTrap(ClapTrap const & src)
 {
