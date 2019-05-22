@@ -2,7 +2,7 @@
 
 NAME 		= 	FragTrap
 
-SRCS		=	NinjaTrap.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
+SRCS		=	SuperTrap.cpp NinjaTrap.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 CC 			=	clang++

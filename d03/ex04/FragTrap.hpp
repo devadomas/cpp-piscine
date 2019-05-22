@@ -13,6 +13,14 @@ public:
 
 	// personal attack
 	void		vaulthunter_dot_exe(std::string const & target);
+
+	// for default values
+	static int	defaultHitPoints;
+	static int	defaultMaxHitPoints;
+	static int	defaultRangedAttack;
+	static int	defaultArmour;
+	static int	;
+
 private:
 	FragTrap(void);
 };
