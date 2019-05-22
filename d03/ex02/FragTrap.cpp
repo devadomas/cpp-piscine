@@ -7,6 +7,8 @@ FragTrap::FragTrap(std::string const & name):
 	std::cout << "FR4G-TP " << name << " appeared! Protect humanity!" << std::endl;
 }
 
+FragTrap::FragTrap(void) {}
+
 FragTrap::~FragTrap(void)
 {
 	std::cout << "FR4G-TP " << this->_name << " has been destroyed... Have a lovely afternoon, and thank you for using Hyperion Robot Services." << std::endl;

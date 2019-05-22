@@ -7,6 +7,8 @@ ScavTrap::ScavTrap(std::string const & name):
 	std::cout << "SC4V-TP " << name << " appeared!  I once started a revolution myself." << std::endl;
 }
 
+ScavTrap::ScavTrap(void) {}
+
 ScavTrap::~ScavTrap(void)
 {
 	std::cout << "SC4V-TP " << this->_name << " has been destroyed... I'M DEAD I'M DEAD OHMYGOD I'M DEAD!" << std::endl;
