@@ -1,15 +1,9 @@
 #include <iostream>
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string const name): _name(name)
-{
+HumanB::HumanB(std::string const name): _name(name) { }
 
-}
-
-HumanB::~HumanB(void)
-{
-
-}
+HumanB::~HumanB(void) { }
 
 void	HumanB::setWeapon(Weapon& weapon)
 {
