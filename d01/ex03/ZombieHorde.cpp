@@ -15,7 +15,7 @@ ZombieHorde::ZombieHorde(int n)
 		"Frank Elaina"
 	};
 	if (n < 0)
-		throw "can't be negative number";
+		throw "can't be negative number"; // fancy huh?
 	this->_n = n;
 	this->_zombies = new Zombie[n];
 	for (int i = 0; i < n; i++)

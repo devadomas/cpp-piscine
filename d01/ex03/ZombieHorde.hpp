@@ -1,5 +1,5 @@
-#ifndef ZOMBIE_HORDE_CLASS_HPP
-# define ZOMBIE_HORDE_CLASS_HPP
+#ifndef ZOMBIE_HORDE_HPP
+# define ZOMBIE_HORDE_HPP
 
 # include "Zombie.hpp"
 
@@ -11,8 +11,8 @@ public:
 	void		announce(void);
 
 private:
-	Zombie*	_zombies;
-	int		_n;
+	Zombie*		_zombies;
+	int			_n;
 };
 
 #endif
