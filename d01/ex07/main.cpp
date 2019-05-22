@@ -2,7 +2,8 @@
 #include <iostream>
 #include <fstream>
 
-#define RETURN_FAIL	1
+#define RETURN_FAIL		1
+#define RETURN_SUCCESS	0
 
 static bool		readFromFile(std::string **str, std::string const &filename)
 {
@@ -84,4 +85,5 @@ int				main(int argc, char const **argv)
 	delete text;
 	if (!writeToFile(output, filename))
 		return (RETURN_FAIL);
+	return (RETURN_SUCCESS);
 }
