@@ -1,15 +1,24 @@
-#ifndef LOGGER_CLASS_HPP
-# define LOGGER_CLASS_HPP
+#ifndef LOGGER_HPP
+# define LOGGER_HPP
 
 # include <string>
+# include <iostream>
+# include <fstream>
 
 class Logger {
 
 public:
-	std::string	makeLogEntry(std::string const & str);
+	Logger(void);
+	~Logger(void);
+
+	void		log(std::string const & dst, std::string const & str);
+
 private:
-	void		logToConsole(std::string const & str);
-	void		logToFile(std::string const & str);
+	std::string	makeLogEntry(std::string const & str) const;
+	void		logToConsole(std::string const & str) const;
+	void		logToFile(std::string const & str) const;
+
+	static std::string const		_file;
 };
 
 #endif
