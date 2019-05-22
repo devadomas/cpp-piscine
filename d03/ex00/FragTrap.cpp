@@ -55,16 +55,16 @@ void				FragTrap::takeDamage(unsigned int amount)
 	if ((int)amount - this->_armor < 0)
 		return ;
 	amount -= this->_armor;
-	this->_energyPoints -= amount;
-	if (this->_energyPoints < 0)
-		this->_energyPoints = 0;
+	this->_valueHit -= amount;
+	if (this->_valueHit < 0)
+		this->_valueHit = 0;
 }
 
 void				FragTrap::beRepaired(unsigned int amount)
 {
-	this->_energyPoints += amount;
-	if (this->_energyPoints > this->_maxEnergyPoints)
-		this->_energyPoints = this->_maxEnergyPoints;
+	this->_valueHit += amount;
+	if (this->_valueHit > this->_maxHit)
+		this->_valueHit = this->_maxHit;
 }
 
 void				FragTrap::vaulthunter_dot_exe(std::string const & target)
@@ -87,7 +87,7 @@ void				FragTrap::vaulthunter_dot_exe(std::string const & target)
 	std::cout << "FR4G-TP " << this->_name << ": uses a special attack " << attacks[rand() % 6] << " on target " << target << " and humiliates it!!!" << std::endl;
 }
 
-int				FragTrap::getHit(void) const
+int				FragTrap::getHP(void) const
 {
 	return this->_valueHit;
 }
@@ -105,7 +105,7 @@ std::string		FragTrap::getName(void) const
 std::ostream & 	operator<<(std::ostream & o, FragTrap const & frag)
 {
 	o << "FR4G-TP " << frag.getName() << " status -> " <<
-		"Hit:" << frag.getHit() << ";"
+		"Hit:" << frag.getHP() << ";"
 		"EnergyPoints:" << frag.getEnergyPoints() << std::endl;
 	return o;
 }

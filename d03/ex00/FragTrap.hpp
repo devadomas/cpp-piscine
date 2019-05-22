@@ -17,7 +17,7 @@ public:
 	void		beRepaired(unsigned int amount);
 	void		vaulthunter_dot_exe(std::string const & target);
 
-	int			getHit(void) const;
+	int			getHP(void) const;
 	int			getEnergyPoints(void) const;
 	std::string	getName(void) const;
 
