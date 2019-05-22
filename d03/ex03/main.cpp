@@ -10,6 +10,6 @@ int		main(void)
 	claptrap.vaulthunter_dot_exe("John");
 	robot.takeDamage(10); // should take 3 less
 
-	std::cout << robot;
+	std::cout << robot; // WIRTE SOME TESTS TO SHOW!!!!!!!!!!!!!!!!
 	// destructor..
 }
