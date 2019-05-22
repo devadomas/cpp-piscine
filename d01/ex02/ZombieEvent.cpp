@@ -1,25 +1,18 @@
 #include <string>
 #include "ZombieEvent.hpp"
 
-ZombieEvent::ZombieEvent(void): _type("")
-{
+ZombieEvent::ZombieEvent(void): _type("") { }
+ZombieEvent::~ZombieEvent(void) { }
 
-}
-
-ZombieEvent::~ZombieEvent(void)
-{
-
-}
-
-bool	ZombieEvent::setZombieType(std::string const type)
+bool			ZombieEvent::setZombieType(std::string const type)
 {
 	if (type.length() == 0)
-		return (false);
+		return false;
 	this->_type = type;
-	return (true);
+	return true;
 }
 
-Zombie*	ZombieEvent::newZombie(std::string const name)
+Zombie*			ZombieEvent::newZombie(std::string const name)
 {
 	return new Zombie(name, this->_type);
 }

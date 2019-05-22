@@ -36,6 +36,7 @@ static void		zombieOnHeap(void)
 
 int				main(void)
 {
+	// for rand() to work
 	std::srand(std::time(nullptr));
 	// zombie on stack
 	randomChump();

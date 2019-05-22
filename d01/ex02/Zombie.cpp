@@ -3,7 +3,7 @@
 
 Zombie::Zombie(std::string name, std::string type): _type(type), _name(name)
 {
-	// nothing needed I guess
+	// nothing needed
 }
 
 Zombie::~Zombie(void)
@@ -19,25 +19,25 @@ void		Zombie::announce() const
 bool		Zombie::setName(std::string const name)
 {
 	if (name.length() == 0)
-		return (false);
+		return false;
 	this->_name = name;
-	return (true);
+	return true;
 }
 
 bool		Zombie::setType(std::string const type)
 {
 	if (type.length() == 0)
-		return (false);
+		return false;
 	this->_type = type;
-	return (true);
+	return true;
 }
 
 std::string	Zombie::getName(void) const
 {
-	return (this->_name);
+	return this->_name;
 }
 
 std::string	Zombie::getType(void) const
 {
-	return (this->_type);
+	return this->_type;
 }
