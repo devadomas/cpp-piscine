@@ -86,3 +86,26 @@ void				FragTrap::vaulthunter_dot_exe(std::string const & target)
 	this->_energyPoints -= 25;
 	std::cout << "FR4G-TP " << this->_name << ": uses a special attack " << attacks[rand() % 6] << " on target " << target << " and humiliates it!!!" << std::endl;
 }
+
+int				FragTrap::getHit(void) const
+{
+	return this->_valueHit;
+}
+
+int				FragTrap::getEnergyPoints(void) const
+{
+	return this->_energyPoints;
+}
+
+std::string		FragTrap::getName(void) const
+{
+	return this->_name;
+}
+
+std::ostream & 	operator<<(std::ostream & o, FragTrap const & frag)
+{
+	o << "FR4G-TP " << frag.getName() << " status -> " <<
+		"Hit:" << frag.getHit() << ";"
+		"EnergyPoints:" << frag.getEnergyPoints() << std::endl;
+	return o;
+}
