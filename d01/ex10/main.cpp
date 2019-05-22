@@ -3,15 +3,14 @@
 #include <sstream>
 #include <sys/stat.h>
 
-static bool	isDirectory( std::string const filename ) {
+static bool     isDirectory(std::string const filename)
+{
 	int				len;
 	std::ifstream	ifs;
 
 	ifs.open(filename);
-
 	if (!ifs.is_open())
 		return false;
-
 	ifs.seekg(0, ifs.end);
 	len = ifs.tellg();
 	ifs.seekg(0, ifs.beg);
