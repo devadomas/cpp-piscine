@@ -8,9 +8,10 @@ class Brain
 public:
 	Brain(void);
 	~Brain(void);
-	std::string	identify(void) const;
+	std::string		identify(void) const;
 private:
-	int		_size;
+	int				_size;
+	int				_brainCells;
 };
 
 #endif

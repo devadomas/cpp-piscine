@@ -2,7 +2,6 @@
 
 Human::Human(void): _brainRef(*(new Brain))
 {
-	// this->_brainRef = *(new Brain);
 	this->_brain = &(this->_brainRef);
 }
 
