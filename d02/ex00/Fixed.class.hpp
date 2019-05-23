@@ -1,5 +1,5 @@
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef FIXED_CLASS_HPP
+# define FIXED_CLASS_HPP
 
 
 class Fixed
