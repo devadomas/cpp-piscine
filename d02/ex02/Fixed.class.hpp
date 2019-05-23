@@ -12,18 +12,18 @@ public:
 	~Fixed(void);
 	Fixed(Fixed const &src);
 
-	Fixed &		operator=(Fixed const & rhs);
-	bool		operator>(Fixed const & rhs) const;
-	bool		operator<(Fixed const & rhs) const;
-	bool		operator>=(Fixed const & rhs) const;
-	bool		operator<=(Fixed const & rhs) const;
-	bool		operator==(Fixed const & rhs) const;
-	bool		operator!=(Fixed const & rhs) const;
+	Fixed &		operator=(Fixed const & src);
+	bool		operator>(Fixed const & src) const;
+	bool		operator<(Fixed const & src) const;
+	bool		operator>=(Fixed const & src) const;
+	bool		operator<=(Fixed const & src) const;
+	bool		operator==(Fixed const & src) const;
+	bool		operator!=(Fixed const & src) const;
 
-	Fixed		operator+(Fixed const & rhs) const;
-	Fixed		operator-(Fixed const & rhs) const;
-	Fixed		operator*(Fixed const & rhs) const;
-	Fixed		operator/(Fixed const & rhs) const;
+	Fixed		operator+(Fixed const & src) const;
+	Fixed		operator-(Fixed const & src) const;
+	Fixed		operator*(Fixed const & src) const;
+	Fixed		operator/(Fixed const & src) const;
 
 	Fixed		operator++(int);
 	Fixed		operator++(void);
@@ -45,6 +45,6 @@ private:
 	static const int _bits;
 };
 
-std::ostream &	operator<<(std::ostream & o, Fixed const & rhs);
+std::ostream &	operator<<(std::ostream & o, Fixed const & src);
 
 #endif

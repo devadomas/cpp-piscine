@@ -31,11 +31,11 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed &		Fixed::operator=(Fixed const & rhs)
+Fixed &		Fixed::operator=(Fixed const & src)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	if (this != &rhs)
-		this->_value = rhs.getRawBits();
+	if (this != &src)
+		this->_value = src.getRawBits();
 	return *this;
 }
 
@@ -60,60 +60,60 @@ int			Fixed::toInt(void) const
 	return  this->_value >> Fixed::_bits;
 }
 
-std::ostream &	operator<<(std::ostream & o, Fixed const & rhs)
+std::ostream &	operator<<(std::ostream & o, Fixed const & src)
 {
-	o << rhs.toFloat();
+	o << src.toFloat();
 	return o;
 }
 
-bool			Fixed::operator>(Fixed const & rhs) const
+bool			Fixed::operator>(Fixed const & src) const
 {
-	return (this->toFloat() > rhs.toFloat());
+	return (this->toFloat() > src.toFloat());
 }
 
-bool			Fixed::operator<(Fixed const & rhs) const
+bool			Fixed::operator<(Fixed const & src) const
 {
-	return (this->toFloat() > rhs.toFloat());
+	return (this->toFloat() > src.toFloat());
 }
 
-bool			Fixed::operator>=(Fixed const & rhs) const
+bool			Fixed::operator>=(Fixed const & src) const
 {
-	return (this->toFloat() >= rhs.toFloat());
+	return (this->toFloat() >= src.toFloat());
 }
 
-bool			Fixed::operator<=(Fixed const & rhs) const
+bool			Fixed::operator<=(Fixed const & src) const
 {
-	return (this->toFloat() <= rhs.toFloat());
+	return (this->toFloat() <= src.toFloat());
 }
 
-bool			Fixed::operator==(Fixed const & rhs) const
+bool			Fixed::operator==(Fixed const & src) const
 {
-	return (this->toFloat() == rhs.toFloat());
+	return (this->toFloat() == src.toFloat());
 }
 
-bool			Fixed::operator!=(Fixed const & rhs) const
+bool			Fixed::operator!=(Fixed const & src) const
 {
-	return (this->toFloat() != rhs.toFloat());
+	return (this->toFloat() != src.toFloat());
 }
 
-Fixed			Fixed::operator+(Fixed const & rhs) const
+Fixed			Fixed::operator+(Fixed const & src) const
 {
-	return Fixed(this->toFloat() + rhs.toFloat());
+	return Fixed(this->toFloat() + src.toFloat());
 }
 
-Fixed			Fixed::operator-(Fixed const & rhs) const
+Fixed			Fixed::operator-(Fixed const & src) const
 {
-	return Fixed(this->toFloat() - rhs.toFloat());
+	return Fixed(this->toFloat() - src.toFloat());
 }
 
-Fixed			Fixed::operator*(Fixed const & rhs) const
+Fixed			Fixed::operator*(Fixed const & src) const
 {
-	return Fixed(this->toFloat() * rhs.toFloat());
+	return Fixed(this->toFloat() * src.toFloat());
 }
 
-Fixed			Fixed::operator/(Fixed const & rhs) const
+Fixed			Fixed::operator/(Fixed const & src) const
 {
-	return Fixed(this->toFloat() / rhs.toFloat());
+	return Fixed(this->toFloat() / src.toFloat());
 }
 
 Fixed		Fixed::operator++(int)
