@@ -3,8 +3,11 @@
 
 # include <iostream>
 # include "ClapTrap.hpp"
+# include "FragTrap.hpp"
+# include "NinjaTrap.hpp"
+# include "ScavTrap.hpp"
 
-class NinjaTrap : public ClapTrap
+class NinjaTrap : virtual public ClapTrap
 {
 public:
 	NinjaTrap(std::string const & name);
@@ -16,7 +19,13 @@ public:
 	void			ninjaShoebox(FragTrap const & enemy);
 	void			ninjaShoebox(ScavTrap const & enemy);
 	void			ninjaShoebox(NinjaTrap const & enemy);
-private:
+
+	// for default values
+	static int		defaultEnergyPoints;
+	static int		defaultMaxEnergyPoints;
+	static int		defaultMeleeAttack;
+
+protected:
 	NinjaTrap(void);
 };
 

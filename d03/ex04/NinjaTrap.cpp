@@ -1,5 +1,11 @@
 #include "NinjaTrap.hpp"
 
+int	NinjaTrap::defaultEnergyPoints = 120;
+int	NinjaTrap::defaultMaxEnergyPoints = 120;
+int	NinjaTrap::defaultMeleeAttack = 60;
+
+NinjaTrap::NinjaTrap(void) {}
+
 NinjaTrap::NinjaTrap(std::string const & name):
 	ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0)
 {
@@ -39,7 +45,7 @@ void				NinjaTrap::ninjaShoebox(ClapTrap const & src)
 	else
 	{
 		this->_energyPoints -= 25;
-		std::cout << "INAC " << this->_name << " attacks " << target << " with a ultimate fist punch!" << std::endl;
+		std::cout << "INAC " << this->_name << " attacks " << src.getName() << " with a ultimate fist punch!" << std::endl;
 	}
 }
 
@@ -50,7 +56,7 @@ void				NinjaTrap::ninjaShoebox(FragTrap const & src)
 	else
 	{
 		this->_energyPoints -= 25;
-		std::cout << "INAC " << this->_name << " attacks " << target << " with a Pincer Attack!" << std::endl;
+		std::cout << "INAC " << this->_name << " attacks " << src.getName() << " with a Pincer Attack!" << std::endl;
 	}
 }
 
@@ -61,7 +67,7 @@ void				NinjaTrap::ninjaShoebox(ScavTrap const & src)
 	else
 	{
 		this->_energyPoints -= 25;
-		std::cout << "INAC " << this->_name << " attacks " << target << " with a Viva La Robolution Attack!" << std::endl;
+		std::cout << "INAC " << this->_name << " attacks " << src.getName() << " with a Viva La Robolution Attack!" << std::endl;
 	}
 }
 
@@ -72,6 +78,6 @@ void				NinjaTrap::ninjaShoebox(NinjaTrap const & src)
 	else
 	{
 		this->_energyPoints -= 25;
-		std::cout << "INAC " << this->_name << " attacks " << target << " with a Shoryuken Attack!" << std::endl;
+		std::cout << "INAC " << this->_name << " attacks " << src.getName() << " with a Shoryuken Attack!" << std::endl;
 	}
 }

@@ -1,6 +1,13 @@
 #include <iostream>
 #include "FragTrap.hpp"
 
+int	FragTrap::defaultHitPoints = 100;
+int	FragTrap::defaultMaxHitPoints = 100;
+int	FragTrap::defaultRangedAttack = 20;
+int	FragTrap::defaultArmour = 5;
+
+FragTrap::FragTrap(void) { } // 
+
 FragTrap::FragTrap(std::string const & name):
 	ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {
