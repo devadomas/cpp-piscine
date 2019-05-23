@@ -51,9 +51,10 @@ List			Solver::getTokens(void) const
 
 void			Solver::build(void)
 {
+	std::string		*arr = this->_tokens.getArr();
+	
 	for (int i = 0; i < this->_tokens.getSize(); i++)
 	{
-		std::string		*arr = this->_tokens.getArr();
 		if (isNumber(arr[i]))
 			this->_solver.pushBack(arr[i]);
 		else if (arr[i] == "(")
