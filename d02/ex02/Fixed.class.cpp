@@ -54,7 +54,7 @@ bool			Fixed::operator>(Fixed const & src) const
 
 bool			Fixed::operator<(Fixed const & src) const
 {
-	return (this->toFloat() > src.toFloat());
+	return (this->toFloat() < src.toFloat());
 }
 
 bool			Fixed::operator>=(Fixed const & src) const
