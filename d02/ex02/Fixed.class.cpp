@@ -4,9 +4,8 @@
 
 const int	Fixed::_bits = 8;
 
-Fixed::Fixed(void)
+Fixed::Fixed(void): _value(0)
 {
-	this->_value = 0;
 	std::cout << "Default constructor called" << std::endl;
 }
 

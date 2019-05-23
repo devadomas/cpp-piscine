@@ -41,8 +41,8 @@ public:
 	static Fixed const  &	min(Fixed const & a, Fixed const & b);
 
 private:
-	int				_value;
-	static const int _bits;
+	int						_value;
+	static const int 		_bits;
 };
 
 std::ostream &	operator<<(std::ostream & o, Fixed const & src);
