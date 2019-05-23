@@ -6,7 +6,7 @@ int	FragTrap::defaultMaxHitPoints = 100;
 int	FragTrap::defaultRangedAttack = 20;
 int	FragTrap::defaultArmour = 5;
 
-FragTrap::FragTrap(void) { } // 
+FragTrap::FragTrap(void) { } //
 
 FragTrap::FragTrap(std::string const & name):
 	ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
@@ -72,4 +72,9 @@ std::ostream & 	operator<<(std::ostream & o, FragTrap const & clap)
 		<< "ranged Attack Damage: " << clap.getRangedAttack() << std::endl
 		<< "armour: " << clap.getArmour() << std::endl;
 	return o;
+}
+
+void				FragTrap::rangedAttack(std::string const & target)
+{
+	std::cout << this->_name << " attacks " << target << " at range(from FragTrap class), causing " << this->_rangedAttack << " points of damage !" << std::endl;	
 }

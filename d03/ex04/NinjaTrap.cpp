@@ -81,3 +81,8 @@ void				NinjaTrap::ninjaShoebox(NinjaTrap const & src)
 		std::cout << "INAC " << this->_name << " attacks " << src.getName() << " with a Shoryuken Attack!" << std::endl;
 	}
 }
+
+void				NinjaTrap::meleeAttack(std::string const & target)
+{
+	std::cout << this->_name << " attacks " << target << " at meelee attack(from NinjaTrap class), causing " << this->_meleeDamage << " points of damage !" << std::endl;
+}

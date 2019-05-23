@@ -19,12 +19,11 @@ public:
 		int					armor
 	);
 
-	~ClapTrap(void);
+	virtual ~ClapTrap(void);
 	ClapTrap(ClapTrap const & src);
-	ClapTrap &	operator=(ClapTrap const & src);
 
-	void		rangedAttack(std::string const & target);
-	void		meleeAttack(std::string const & target);
+	virtual void	rangedAttack(std::string const & target);
+	virtual void	meleeAttack(std::string const & target);
 	void		takeDamage(unsigned int amount);
 	void		beRepaired(unsigned int amount);
 
@@ -62,7 +61,7 @@ protected:
 	int			_armor;
 
 private:
-
+	ClapTrap &	operator=(ClapTrap const & src);
 };
 
 std::ostream & 	operator<<(std::ostream & o, ClapTrap const & clap);

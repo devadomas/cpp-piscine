@@ -11,7 +11,7 @@ class NinjaTrap : virtual public ClapTrap
 {
 public:
 	NinjaTrap(std::string const & name);
-	~NinjaTrap(void);
+	virtual ~NinjaTrap(void);
 	NinjaTrap(NinjaTrap const & src);
 	NinjaTrap &		operator=(NinjaTrap const & src);
 
@@ -20,6 +20,8 @@ public:
 	void			ninjaShoebox(ScavTrap const & enemy);
 	void			ninjaShoebox(NinjaTrap const & enemy);
 
+	// --- shared ---
+	void			meleeAttack(std::string const & target);
 	// for default values
 	static int		defaultEnergyPoints;
 	static int		defaultMaxEnergyPoints;
