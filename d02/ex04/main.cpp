@@ -9,6 +9,11 @@
 		- Reverse polish notation
 */
 
+/*
+	For some points, it work on very simple numbers and expressions
+	Mostly it's not right, but it's something... yeah?...
+*/
+
 int			main(int argc, char const **argv)
 {
 	if (argc != 2)
@@ -22,6 +27,5 @@ int			main(int argc, char const **argv)
 	// verification needed
 	rpn.build();
 	std::cout << rpn.solve() << std::endl;
-	// std::cout << "Size: " << rpn.getTokens().getSize() << std::endl;
 	return (0);
 }
