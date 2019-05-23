@@ -15,5 +15,20 @@ int			main(void)
 	std::cout << b << std::endl;
 
 	std::cout << Fixed::max(a, b) << std::endl;
+
+	// -- my implemented tests
+	std::cout << "--- TESTS of mine ---" << std::endl;
+	std::cout << "Values: a(" << a << ") | b(" << b << ")" << std::endl;
+	std::cout << "Eval: (a > b) == " << (a > b ? "yes" : "no") << std::endl;
+	std::cout << "Eval: (a < b) == " << (a < b ? "yes" : "no") << std::endl;
+	std::cout << "Eval: (a >= b) == " << (a >= b ? "yes" : "no") << std::endl;
+	std::cout << "Eval: (a <= b) == " << (a <= b ? "yes" : "no") << std::endl;
+	std::cout << "Eval: (a != b) == " << (a != b ? "yes" : "no") << std::endl;
+	std::cout << "Eval: (a == b) == " << (a == b ? "yes" : "no") << std::endl;
+	std::cout << "Arithmetics time!" << std::endl;
+	std::cout << "Eval: (a - b) = " << Fixed(a - b) << std::endl;
+	std::cout << "Eval: (a + b) = " << Fixed(a + b) << std::endl;
+	std::cout << "Eval: (a * b) = " << Fixed(a * b) << std::endl;
+	std::cout << "Eval: (a / b) = " << Fixed(a / b) << std::endl;
 	return (0);
 }
