@@ -1,5 +1,5 @@
-#ifndef FIXED_CLASS_HPP
-# define FIXED_CLASS_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 
 class Fixed
@@ -8,13 +8,14 @@ public:
 	Fixed(void);
 	~Fixed(void);
 	Fixed(Fixed const &src);
-	Fixed &		operator=(Fixed const & rhs);
+	Fixed &		operator=(Fixed const & src);
+
 	int			getRawBits(void) const;
 	void		setRawBits(int const raw);
 
 private:
-	int				_value;
-	static const int _bits;
+	int					_value;
+	static const int 	_bits;
 };
 
 #endif
