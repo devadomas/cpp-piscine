@@ -4,8 +4,8 @@ List::List(void): _size(0), _arr(NULL) { }
 
 List::~List(void)
 {
-	// if (this->_size)
-		// delete [] this->_arr;
+	if (this->_size)
+		delete [] this->_arr;
 }
 
 List::List(List const & src)
