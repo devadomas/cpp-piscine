@@ -3,6 +3,7 @@
 NinjaTrap::NinjaTrap(std::string const & name):
 	ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0)
 {
+	std::srand(std::time(nullptr)); // for true rand()
 	std::cout << "INAC " << name << " appeared! Give us open ports for remote access or give us death!" << std::endl;
 }
 
@@ -35,44 +36,72 @@ NinjaTrap &			NinjaTrap::operator=(NinjaTrap const & src)
 
 void				NinjaTrap::ninjaShoebox(ClapTrap const & enemy)
 {
+	std::string			arr[] = {
+		"fist punch",
+		"kick flip",
+		"salto punch",
+		"superman kick"
+	};
+
 	if (this->_energyPoints < 25)
 		std::cout << "INAC " << this->_name << ": aaah crap! There is not enough energy to make special attack!" << std::endl;
 	else
 	{
 		this->_energyPoints -= 25;
-		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a ultimate fist punch!" << std::endl;
+		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a ultimate " << arr[rand() % 4] << "!" << std::endl;
 	}
 }
 
 void				NinjaTrap::ninjaShoebox(FragTrap const & enemy)
 {
+	std::string			arr[] = {
+		"Iron Fist",
+		"Heavy Handed attack",
+		"Venom attack",
+		"Lethal Strike"
+	};
+
 	if (this->_energyPoints < 25)
-		std::cout << "INAC " << this->_name << ": aaah crap! There is not enough energy to make special attack!" << std::endl;
+		std::cout << "INAC " << this->_name << ": aaah crap! There is not enough energy to make " << arr[rand() % 4] << "!" << std::endl;
 	else
 	{
 		this->_energyPoints -= 25;
-		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a Pincer Attack!" << std::endl;
+		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a " << arr[rand() % 4] << "!" << std::endl;
 	}
 }
 
 void				NinjaTrap::ninjaShoebox(ScavTrap const & enemy)
 {
+	std::string			arr[] = {
+		"Iron Fist",
+		"Heavy Handed attack",
+		"Venom attack",
+		"Lethal Strike"
+	};
+
 	if (this->_energyPoints < 25)
-		std::cout << "INAC " << this->_name << ": aaah crap! There is not enough energy to make special attack!" << std::endl;
+		std::cout << "INAC " << this->_name << ": aaah crap! There is not enough energy to make " << arr[rand() % 4] << "!" << std::endl;
 	else
 	{
 		this->_energyPoints -= 25;
-		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a Viva La Robolution Attack!" << std::endl;
+		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a " << arr[rand() % 4] << "!" << std::endl;
 	}
 }
 
 void				NinjaTrap::ninjaShoebox(NinjaTrap const & enemy)
 {
+	std::string			arr[] = {
+		"Iron Fist",
+		"Heavy Handed attack",
+		"Venom attack",
+		"Lethal Strike"
+	};
+
 	if (this->_energyPoints < 25)
-		std::cout << "INAC " << this->_name << ": aaah crap! There is not enough energy to make special attack!" << std::endl;
+		std::cout << "INAC " << this->_name << ": aaah crap! There is not enough energy to make " << arr[rand() % 4] << "!" << std::endl;
 	else
 	{
 		this->_energyPoints -= 25;
-		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a Shoryuken Attack!" << std::endl;
+		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a " << arr[rand() % 4] << "!" << std::endl;
 	}
 }
