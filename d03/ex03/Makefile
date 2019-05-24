@@ -1,6 +1,6 @@
 .PHONY: 		all clean fclean re
 
-NAME 		= 	FragTrap
+NAME 		= 	NinjaTrap
 
 SRCS		=	NinjaTrap.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
 OBJS		=	$(SRCS:.cpp=.o)
