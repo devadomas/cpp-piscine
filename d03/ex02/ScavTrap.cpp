@@ -1,13 +1,13 @@
 #include <iostream>
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap(void) { }
+
 ScavTrap::ScavTrap(std::string const & name):
 	ClapTrap(name, 100, 100, 100, 50, 1, 20, 15, 3)
 {
 	std::cout << "SC4V-TP " << name << " appeared!  I once started a revolution myself." << std::endl;
 }
-
-ScavTrap::ScavTrap(void) {}
 
 ScavTrap::~ScavTrap(void)
 {
@@ -27,6 +27,7 @@ ScavTrap &			ScavTrap::operator=(ScavTrap const & src)
 		this->_valueHit = src._valueHit;
 		this->_maxHit = src._maxHit;
 		this->_energyPoints = src._energyPoints;
+		this->_maxEnergyPoints = src._maxEnergyPoints;
 		this->_level = src._level;
 		this->_meleeDamage = src._meleeDamage;
 		this->_rangedAttack = src._rangedAttack;
