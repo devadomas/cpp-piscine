@@ -3,21 +3,25 @@
 
 int		main(void)
 {
-	FragTrap	claptrap("Keren");
+	FragTrap			*trap = new FragTrap("K!LL3R");
 
-	std::srand(std::time(nullptr)); // for rand() to work
-	claptrap.rangedAttack("Zer0");
-	// Taking damage test
-	std::cout << "Taking damage with a value of 10" << std::endl;
-	claptrap.takeDamage(10);
-	std::cout << "Try out the special attack!" << std::endl;
-	claptrap.vaulthunter_dot_exe("John");
-	claptrap.vaulthunter_dot_exe("John");
-	claptrap.vaulthunter_dot_exe("John");
-	claptrap.vaulthunter_dot_exe("John");
-	claptrap.vaulthunter_dot_exe("John");
+	trap->rangedAttack("Zer0");
 	//
-	claptrap.beRepaired(300);
-	std::cout << claptrap; // for logging purposes
-
+	trap->meleeAttack("Betty");
+	trap->rangedAttack("Nelly");
+	std::cout << *trap;
+	// next!
+	trap->takeDamage(200);
+	std::cout << *trap;
+	trap->beRepaired(500);
+	trap->takeDamage(1);
+	std::cout << *trap;
+	trap->vaulthunter_dot_exe("Terminator");
+	trap->vaulthunter_dot_exe("Norminattor");
+	trap->vaulthunter_dot_exe("Verificator");
+	trap->vaulthunter_dot_exe("Terminator");
+	trap->vaulthunter_dot_exe("Norminattor");
+	trap->vaulthunter_dot_exe("Verificator");
+	std::cout << *trap;
+	delete trap;
 }
