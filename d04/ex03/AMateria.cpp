@@ -4,6 +4,8 @@ AMateria::AMateria(void): xp_(0) { }
 AMateria::AMateria(AMateria const & src) { *this = src; }
 AMateria::~AMateria(void) { }
 
+AMateria::AMateria(std::string const & type): xp_(0), _type(type) { }
+
 AMateria &					AMateria::operator=(AMateria const & src)
 {
 	if (this != &src)
@@ -16,13 +18,9 @@ AMateria &					AMateria::operator=(AMateria const & src)
 
 //
 
-std::std::string const &	AMateria::getType(void) const { return this->_type; }
+std::string const &	AMateria::getType(void) const { return this->_type; }
 unsigned int				AMateria::getXP(void) const { return this->xp_; }
 
-AMateria *					AMateria::clone(void) const
-{
-	return new AMateria(*this);
-}
 
 void						AMateria::use(ICharacter &) { this->xp_+= 10; }
 void						AMateria::setType(std::string const & type) { this->_type = type; }

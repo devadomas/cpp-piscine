@@ -2,7 +2,7 @@
 
 NAME 		= 	battle
 
-SRCS		=	Ice.cpp Cure.cpp Character.cpp AMateria.cpp main.cpp
+SRCS		=	MateriaSource.cpp Ice.cpp Cure.cpp Character.cpp AMateria.cpp main.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 CC 			=	clang++

@@ -19,7 +19,6 @@ public:
 
 private:
 	std::string				_name;
-	int						_size;
 	AMateria *				_arr[4];
 
 	Character(void);

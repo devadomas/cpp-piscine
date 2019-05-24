@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Cure.hpp"
 
-Cure::Cure(void): _type("cure") { }
+Cure::Cure(void): AMateria("cure") { }
 
 Cure::~Cure(void) { }
 
@@ -10,12 +10,12 @@ Cure::Cure(Cure const & src)
 	*this = src;
 }
 
-Cure &		Ice::operator=(Cure const & src)
+Cure &		Cure::operator=(Cure const & src)
 {
 	if (this != &src)
 	{
-		this->xp = src.getXP();
-		thos->_type = src.getType();
+		this->setXP(src.getXP());
+		this->setType(src.getType());
 	}
 	return *this;
 }

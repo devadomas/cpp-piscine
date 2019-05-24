@@ -1,11 +1,13 @@
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
 
+#include "ICharacter.hpp"
+
 class AMateria
 {
 public:
 	AMateria(std::string const & type);
-	Amateria(AMateria const & src);
+	AMateria(AMateria const & src);
 	virtual ~AMateria(void);
 	AMateria &			operator=(AMateria const & src);
 

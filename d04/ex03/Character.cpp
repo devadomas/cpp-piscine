@@ -75,3 +75,8 @@ void				Character::use(int idx, ICharacter & target)
 	if (idx >= 0 && idx < 4 && this->_arr[idx])
 		this->_arr[idx]->use(target);
 }
+
+std::string const &		Character::getName(void) const
+{
+	return this->_name;
+}

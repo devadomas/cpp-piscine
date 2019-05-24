@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Ice.hpp"
 
-Ice::Ice(void): _type("ice") { }
+Ice::Ice(void): AMateria("ice") { }
 
 Ice::~Ice(void) { }
 
@@ -14,8 +14,8 @@ Ice &		Ice::operator=(Ice const & src)
 {
 	if (this != &src)
 	{
-		this->xp = src.getXP();
-		thos->_type = src.getType();
+		this->setXP(src.getXP());
+		this->setType(src.getType());
 	}
 	return *this;
 }
