@@ -111,3 +111,8 @@ void				NinjaTrap::ninjaShoebox(NinjaTrap const & enemy)
 		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a " << arr[rand() % 4] << "!" << std::endl;
 	}
 }
+
+void				NinjaTrap::meleeAttack(std::string const & target)
+{
+	std::cout << this->_name << " attacks " << target << " at meelee attack, causing " << this->_meleeDamage << " points of damage ! -- Called from NinjaTrap!" << std::endl;
+}

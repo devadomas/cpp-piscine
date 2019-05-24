@@ -18,7 +18,8 @@ public:
 	void			ninjaShoebox(FragTrap const & enemy);
 	void			ninjaShoebox(ScavTrap const & enemy);
 	void			ninjaShoebox(NinjaTrap const & enemy);
-
+	// for virtual
+	void		meleeAttack(std::string const & target);
 	// for default values
 	static int		defaultEnergyPoints;
 	static int		defaultMaxEnergyPoints;
