@@ -18,6 +18,4 @@ protected:
 	ScavTrap(void);
 };
 
-std::ostream & 	operator<<(std::ostream & o, ScavTrap const & scav);
-
 #endif

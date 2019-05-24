@@ -7,7 +7,7 @@ int	NinjaTrap::defaultMeleeAttack = 60;
 NinjaTrap::NinjaTrap(void) { }
 
 NinjaTrap::NinjaTrap(std::string const & name):
-	ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0)
+	ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0, "INAC")
 {
 	std::srand(std::time(nullptr)); // for true rand()
 	std::cout << "INAC " << name << " appeared! Give us open ports for remote access or give us death!" << std::endl;

@@ -4,7 +4,7 @@
 ScavTrap::ScavTrap(void) { }
 
 ScavTrap::ScavTrap(std::string const & name):
-	ClapTrap(name, 100, 100, 100, 50, 1, 20, 15, 3)
+	ClapTrap(name, 100, 100, 100, 50, 1, 20, 15, 3, "SC4V-TP")
 {
 	std::cout << "SC4V-TP " << name << " appeared!  I once started a revolution myself." << std::endl;
 }
@@ -35,21 +35,6 @@ ScavTrap &			ScavTrap::operator=(ScavTrap const & src)
 	}
 	return *this;
 }
-
-std::ostream & 	operator<<(std::ostream & o, ScavTrap const & clap)
-{
-	o << "SC4V-TP " << clap.getName() << " has stats of: " << std::endl
-		<< "HP: " << clap.getHP() << std::endl
-		<< "Max HP: " << clap.getMaxHP() << std::endl
-		<< "Energy Points: " << clap.getEnergyPoints() << std::endl
-		<< "max Energy Points: " << clap.getMaxEnergyPoints() << std::endl
-		<< "level: " << clap.getLevel() << std::endl
-		<< "melee Damage: " << clap.getMeleeDamage() << std::endl
-		<< "ranged Attack Damage: " << clap.getRangedAttack() << std::endl
-		<< "armour: " << clap.getArmour() << std::endl;
-	return o;
-}
-
 
 void			ScavTrap::challengeNewcomer(std::string const & target)
 {
