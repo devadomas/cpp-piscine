@@ -20,6 +20,12 @@ public:
 	int			getHP(void) const;
 	int			getEnergyPoints(void) const;
 	std::string	getName(void) const;
+	int			getMaxHP(void) const;
+	int			getMaxEnergyPoints(void) const;
+	int			getLevel(void) const;
+	int			getMeleeDamage(void) const;
+	int			getRangedAttack(void) const;
+	int			getArmour(void) const;
 
 private:
 	int			_valueHit;
@@ -31,6 +37,8 @@ private:
 	int			_meleeDamage;
 	int			_rangedAttack;
 	int			_armor;
+
+	FragTrap(void);
 };
 
 std::ostream & 	operator<<(std::ostream & o, FragTrap const & frag);
