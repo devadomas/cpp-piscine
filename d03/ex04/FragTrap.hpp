@@ -13,6 +13,8 @@ public:
 
 	// personal attack
 	void		vaulthunter_dot_exe(std::string const & target);
+	// for virutal
+	void		rangedAttack(std::string const & target);
 	// --- for default values ---
 	static int	defaultHitPoints;
 	static int	defaultMaxHitPoints;

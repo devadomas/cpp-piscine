@@ -63,7 +63,7 @@ void				FragTrap::vaulthunter_dot_exe(std::string const & target)
 	std::cout << "FR4G-TP " << this->_name << ": uses a special attack " << fight << " on target " << target << " and humiliates it!!!" << std::endl;
 }
 
-std::ostream & 	operator<<(std::ostream & o, FragTrap const & clap)
+std::ostream & 		operator<<(std::ostream & o, FragTrap const & clap)
 {
 	o << "FR4G-TP " << clap.getName() << " has stats of: " << std::endl
 		<< "HP: " << clap.getHP() << std::endl
@@ -75,4 +75,9 @@ std::ostream & 	operator<<(std::ostream & o, FragTrap const & clap)
 		<< "ranged Attack Damage: " << clap.getRangedAttack() << std::endl
 		<< "armour: " << clap.getArmour() << std::endl;
 	return o;
+}
+
+void				FragTrap::rangedAttack(std::string const & target)
+{
+	std::cout << this->_name << " attacks " << target << " at range, causing " << this->_rangedAttack << " points of damage! -- Called from FragTrap!" << std::endl;
 }
