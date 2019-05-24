@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void)
+ClapTrap::ClapTrap(void) // it's protected so should not be called
 {
 	std::cout << "ClapTrap default(empty) constructor has been called" << std::endl;
 }
@@ -39,7 +39,7 @@ ClapTrap &		ClapTrap::operator=(ClapTrap const & src)
 	{
 		this->_name = src._name;
 		this->_valueHit = src._valueHit;
-		this->_maxHit = src._valueHit;
+		this->_maxHit = src._maxHit;
 		this->_energyPoints = src._energyPoints;
 		this->_maxEnergyPoints = src._maxEnergyPoints;
 		this->_level = src._level;
@@ -85,12 +85,12 @@ void			ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_valueHit == 0)
 	{
-		std::cout << this->_name << " is already dead!" << std::endl;
+		std::cout << this->_name << " is already done for today... Stop killing dead robot, YOU SADIST!" << std::endl;
 		return ;
 	}
-	if (this->_armor >= (int)amount)
+	if (this->_armor >= int(amount))
 	{
-		std::cout << this->_name << " has an armour! You have no power with damage that low!!!" << std::endl;
+		std::cout << this->_name << ": My armour is though enough! YOU HAVE NO POWER HERE MUAHAHAH" << std::endl;
 		return ;
 	}
 	amount -= this->_armor;
@@ -98,7 +98,7 @@ void			ClapTrap::takeDamage(unsigned int amount)
 	if (this->_valueHit <= 0)
 	{
 		this->_valueHit = 0;
-		std::cout << "This amount of damage killed " << this->_name << "..." << std::endl;
+		std::cout << this->_name << ": the hero has fallen..." << std::endl;
 	}
 }
 
@@ -107,21 +107,23 @@ void			ClapTrap::beRepaired(unsigned int amount)
 	this->_valueHit += amount;
 	if (this->_valueHit > this->_maxHit)
 	{
-		this->_energyPoints = this->_maxHit;
-		std::cout << this->_name << " is now on full health mode!" << std::endl;
+		this->_valueHit = this->_maxHit;
+		std::cout << this->_name << ": I'm fully charged! Never been this ready!" << std::endl;
+		return ;
 	}
+	std::cout << this->_name << ": Oh yeah! Ready to party! (Current hp: " << this->_valueHit << ")" << std::endl;
 }
 
-std::ostream & 	operator<<(std::ostream & o, ClapTrap const & clap)
+std::ostream & 	operator<<(std::ostream & o, ClapTrap const & frag)
 {
-	o << clap.getName() << " has stats of: " << std::endl
-		<< "HP: " << clap.getHP() << std::endl
-		<< "Max HP: " << clap.getMaxHP() << std::endl
-		<< "Energy Points: " << clap.getEnergyPoints() << std::endl
-		<< "max Energy Points: " << clap.getMaxEnergyPoints() << std::endl
-		<< "level: " << clap.getLevel() << std::endl
-		<< "melee Damage: " << clap.getMeleeDamage() << std::endl
-		<< "ranged Attack Damage: " << clap.getRangedAttack() << std::endl
-		<< "armour: " << clap.getArmour() << std::endl;
+	o << "[Player] " << frag.getName() << " stats:" << std::endl
+		<< "- HP: " << frag.getHP() << std::endl
+		<< "- maxHP: " << frag.getMaxHP() << std::endl
+		<< "- EnergyPoints: " << frag.getEnergyPoints() << std::endl
+		<< "- max EnergyPoints: " << frag.getMaxEnergyPoints() << std::endl
+		<< "- level: " << frag.getLevel() << std::endl
+		<< "- melee DMG: " << frag.getMeleeDamage() << std::endl
+		<< "- ranged DMG: " << frag.getRangedAttack() << std::endl
+		<< "- Armour: " << frag.getArmour() << std::endl;
 	return o;
 }
