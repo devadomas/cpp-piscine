@@ -23,10 +23,10 @@ public:
 	ClapTrap(ClapTrap const & src);
 	ClapTrap &	operator=(ClapTrap const & src);
 
-	void		rangedAttack(std::string const & target);
-	void		meleeAttack(std::string const & target);
-	void		takeDamage(unsigned int amount);
-	void		beRepaired(unsigned int amount);
+	virutal void		rangedAttack(std::string const & target);
+	virtual void		meleeAttack(std::string const & target);
+	void				takeDamage(unsigned int amount);
+	void				beRepaired(unsigned int amount);
 
 	std::string	getName(void) const;
 	int			getHP(void) const;
