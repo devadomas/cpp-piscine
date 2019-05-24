@@ -16,7 +16,8 @@ public:
 		int					level,
 		int					meleeDamage,
 		int					rangedAttack,
-		int					armor
+		int					armor,
+		std::string const &	type
 	);
 
 	virtual ~ClapTrap(void);
@@ -37,6 +38,7 @@ public:
 	int			getMeleeDamage(void) const;
 	int			getRangedAttack(void) const;
 	int			getArmour(void) const;
+	std::string	getType(void) const;
 
 	void		setName(std::string const & name);
 	void		setHP(int value);
@@ -47,6 +49,7 @@ public:
 	void		setMeleeDamage(int value);
 	void		setRangedAttack(int value);
 	void		setArmour(int value);
+	void		setType(std::string const & type);
 
 protected:
 	ClapTrap(void);
@@ -60,6 +63,9 @@ protected:
 	int			_meleeDamage;
 	int			_rangedAttack;
 	int			_armor;
+
+private:
+	std::string	_type;
 
 };
 
