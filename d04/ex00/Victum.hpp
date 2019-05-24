@@ -1,5 +1,5 @@
-#ifndef VICTUM_CLASS_HPP
-# define VICTUM_CLASS_HPP
+#ifndef VICTUM_HPP
+# define VICTUM_HPP
 
 # include <iostream>
 # include <string>

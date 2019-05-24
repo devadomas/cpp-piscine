@@ -1,5 +1,5 @@
-#ifndef PEON_CLASS_HPP
-# define PEON_CLASS_HPP
+#ifndef PEON_HPP
+# define PEON_HPP
 
 # include <string>
 # include "Victum.hpp"

@@ -1,19 +1,19 @@
 #include <iostream>
 #include "Peon.hpp"
 
-Peon::Peon(void) : Victum() {} // Plane constr.
+Peon::Peon(void) : Victum() { }
 
 Peon::Peon(std::string name): Victum(name)
 {
 	std::cout << "Zog zog." << std::endl;
 }
 
-Peon::~Peon(void) // Destructor
+Peon::~Peon(void)
 {
 	std::cout << "Bleuark..." << std::endl;
 }
 
-Peon::Peon(Peon const & src) // Copy constructor
+Peon::Peon(Peon const & src)
 {
 	*this = src;
 }
@@ -27,6 +27,5 @@ Peon &			Peon::operator=(Peon const & src)
 
 void			Peon::getPolymorphed(void) const
 {
-	// std::cout << this->_name << " has been turned into a pink pony !" << std::endl;
 	std::cout << this->getName() << " has been turned into a pink pony !" << std::endl;
 }

@@ -1,5 +1,5 @@
-#ifndef SORCERER_CLASS_HPP
-# define SORCERER_CLASS_HPP
+#ifndef SORCERER_HPP
+# define SORCERER_HPP
 
 # include <iostream>
 # include "Victum.hpp"
