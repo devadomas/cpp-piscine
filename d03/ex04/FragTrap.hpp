@@ -24,6 +24,4 @@ protected:
 	FragTrap(void);
 };
 
-std::ostream & 	operator<<(std::ostream & o, FragTrap const & frag);
-
 #endif

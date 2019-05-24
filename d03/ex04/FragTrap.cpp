@@ -9,7 +9,7 @@ int	FragTrap::defaultRangedAttack = 20;
 int	FragTrap::defaultArmour = 5;
 
 FragTrap::FragTrap(std::string const & name):
-	ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
+	ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5, "FR4G-TP")
 {
 	std::srand(std::time(nullptr)); // for true rand()
 	std::cout << "FR4G-TP " << name << " appeared! Protect humanity!" << std::endl;
@@ -61,20 +61,6 @@ void				FragTrap::vaulthunter_dot_exe(std::string const & target)
 	}
 	this->_energyPoints -= 25;
 	std::cout << "FR4G-TP " << this->_name << ": uses a special attack " << fight << " on target " << target << " and humiliates it!!!" << std::endl;
-}
-
-std::ostream & 		operator<<(std::ostream & o, FragTrap const & clap)
-{
-	o << "FR4G-TP " << clap.getName() << " has stats of: " << std::endl
-		<< "HP: " << clap.getHP() << std::endl
-		<< "Max HP: " << clap.getMaxHP() << std::endl
-		<< "Energy Points: " << clap.getEnergyPoints() << std::endl
-		<< "max Energy Points: " << clap.getMaxEnergyPoints() << std::endl
-		<< "level: " << clap.getLevel() << std::endl
-		<< "melee Damage: " << clap.getMeleeDamage() << std::endl
-		<< "ranged Attack Damage: " << clap.getRangedAttack() << std::endl
-		<< "armour: " << clap.getArmour() << std::endl;
-	return o;
 }
 
 void				FragTrap::rangedAttack(std::string const & target)
