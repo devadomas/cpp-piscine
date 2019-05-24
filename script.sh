@@ -21,7 +21,9 @@ for directory in $1/*/ ; do
 		vogsphereFile="${file/$1/$2}"
 
 		# Check if file exists
-		if [ ! -f $vogsphereFile ]; then
+		if [ ${file: -4} != ".cpp" ] && [ ${file: -4} != ".hpp" ] && [ ${file##*/} != "Makefile" ]; then
+			printf "\e[93m|-- ${vogsphereFile##*/} : suspicious file\e[0m\n"
+		elif [ ! -f $vogsphereFile ]; then
 			printf "\e[91m|-- ${vogsphereFile##*/} : file not found\e[0m\n"
 
 		# Make a diff on files
