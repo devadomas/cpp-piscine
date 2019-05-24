@@ -6,7 +6,7 @@ class AMateria
 public:
 	AMateria(std::string const & type);
 	Amateria(AMateria const & src);
-	~AMateria(void);
+	virtual ~AMateria(void);
 	AMateria &			operator=(AMateria const & src);
 
 	std::string const &	getType(void) const; // Return materia type
@@ -16,9 +16,14 @@ public:
 	virtual void		use(ICharacter & target);
 
 private:
+	unsigned int		xp_;
+	std::string			_type;
+
 
 protected:
 	AMateria(void);
+	void			setType(std::string const & type);
+	void			setXP(int xp);
 };
 
 #endif
