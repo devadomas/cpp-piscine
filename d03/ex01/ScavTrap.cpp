@@ -14,7 +14,7 @@ ScavTrap::ScavTrap(std::string const & name): _name(name)
 	this->_meleeDamage = 20;
 	this->_rangedAttack = 15;
 	this->_armor = 3;
-	std::cout << "SC4V-TP " << name << " appeared!  I once started a revolution myself." << std::endl;
+	std::cout << "SC4V-TP " << name << " appeared! I once started a revolution myself." << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
