@@ -15,7 +15,8 @@ SuperTrap::SuperTrap(std::string const & name):
 		1,
 		this->defaultMeleeAttack,
 		this->defaultRangedAttack,
-		this->defaultArmour
+		this->defaultArmour,
+		"5UP4-3G0-TP"
 )
 {
 	std::cout << "Constructor for SuperTrap called!" << std::endl;
