@@ -1,5 +1,5 @@
-#ifndef		SCAVTRAP_CLASS_CPP
-# define	SCAVTRAP_CLASS_CPP
+#ifndef		SCAVTRAP_CPP
+# define	SCAVTRAP_CPP
 
 class ScavTrap
 {
@@ -13,11 +13,17 @@ public:
 	void		meleeAttack(std::string const & target);
 	void		takeDamage(unsigned int amount);
 	void		beRepaired(unsigned int amount);
+	void		challengeNewcomer(std::string const & target);
 
 	int			getHP(void) const;
 	int			getEnergyPoints(void) const;
 	std::string	getName(void) const;
-	void		challengeNewcomer(std::string const & target);
+	int			getMaxHP(void) const;
+	int			getMaxEnergyPoints(void) const;
+	int			getLevel(void) const;
+	int			getMeleeDamage(void) const;
+	int			getRangedAttack(void) const;
+	int			getArmour(void) const;
 
 private:
 	int			_valueHit;
@@ -29,6 +35,8 @@ private:
 	int			_meleeDamage;
 	int			_rangedAttack;
 	int			_armor;
+
+	ScavTrap(void);
 };
 
 std::ostream & 	operator<<(std::ostream & o, ScavTrap const & scav);
