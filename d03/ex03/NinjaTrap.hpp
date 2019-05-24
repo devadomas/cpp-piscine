@@ -18,6 +18,7 @@ public:
 	void			ninjaShoebox(FragTrap const & enemy);
 	void			ninjaShoebox(ScavTrap const & enemy);
 	void			ninjaShoebox(NinjaTrap const & enemy);
+	
 private:
 	NinjaTrap(void);
 };
