@@ -1,8 +1,11 @@
 #include <iostream>
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap(void) { } // private constructor(void) in this case not used
+
 FragTrap::FragTrap(std::string const & name): _name(name)
 {
+	std::srand(std::time(nullptr)); // for true rand()
 	this->_valueHit = 100;
 	this->_maxHit = 100;
 	this->_energyPoints = 100;
@@ -32,6 +35,7 @@ FragTrap &			FragTrap::operator=(FragTrap const & src)
 		this->_valueHit = src._valueHit;
 		this->_maxHit = src._maxHit;
 		this->_energyPoints = src._energyPoints;
+		this->_maxEnergyPoints = src._maxEnergyPoints;
 		this->_level = src._level;
 		this->_meleeDamage = src._meleeDamage;
 		this->_rangedAttack = src._rangedAttack;
@@ -40,6 +44,18 @@ FragTrap &			FragTrap::operator=(FragTrap const & src)
 	return *this;
 }
 
+//		Getters
+int				FragTrap::getHP(void) const { return this->_valueHit; }
+int				FragTrap::getEnergyPoints(void) const { return this->_energyPoints; }
+std::string		FragTrap::getName(void) const { return this->_name; }
+int				FragTrap::getMaxHP(void) const { return this->_maxHit; }
+int				FragTrap::getMaxEnergyPoints(void) const { return this->_maxEnergyPoints; }
+int				FragTrap::getLevel(void) const { return this->_level; }
+int				FragTrap::getMeleeDamage(void) const { return this->_meleeDamage; }
+int				FragTrap::getRangedAttack(void) const { return this->_rangedAttack; }
+int				FragTrap::getArmour(void) const { return this->_armor; }
+
+// Attacks&stuff
 void				FragTrap::rangedAttack(std::string const & target)
 {
 	std::cout << "FR4G-TP " << this->_name << " attacks " << target << " at range, causing " << this->_rangedAttack << " points of damage !" << std::endl;
@@ -52,19 +68,35 @@ void				FragTrap::meleeAttack(std::string const & target)
 
 void				FragTrap::takeDamage(unsigned int amount)
 {
-	if ((int)amount - this->_armor < 0)
+	if (this->_valueHit == 0)
+	{
+		std::cout << "FR4G-TP " << this->_name << " is already done for today... Stop killing dead robot, YOU SADIST!" << std::endl;
 		return ;
+	}
+	if (this->_armor > int(amount))
+	{
+		std::cout << "FR4G-TP " << this->_name << ": My armour is though enough! YOU HAVE NO POWER HERE MUAHAHAH" << std::endl;
+		return ;
+	}
 	amount -= this->_armor;
 	this->_valueHit -= amount;
-	if (this->_valueHit < 0)
+	if (this->_valueHit <= 0)
+	{
 		this->_valueHit = 0;
+		std::cout << "FR4G-TP " << this->_name << ": the hero has fallen..." << std::endl;
+	}
 }
 
 void				FragTrap::beRepaired(unsigned int amount)
 {
 	this->_valueHit += amount;
 	if (this->_valueHit > this->_maxHit)
+	{
 		this->_valueHit = this->_maxHit;
+		std::cout << "FR4G-TP " << this->_name << ": I'm fully charged! Never been this ready!" << std::endl;
+		return ;
+	}
+	std::cout << "FR4G-TP " << this->_name << ": Oh yeah! Ready to party! (Current hp: " << this->_valueHit << ")" << std::endl;
 }
 
 void				FragTrap::vaulthunter_dot_exe(std::string const & target)
@@ -77,6 +109,7 @@ void				FragTrap::vaulthunter_dot_exe(std::string const & target)
 		"One-Shot Wonder",
 		"Laser Inferno"
 	};
+	std::string		fight = attacks[rand() % 6];
 
 	if (this->_energyPoints < 25)
 	{
@@ -84,28 +117,19 @@ void				FragTrap::vaulthunter_dot_exe(std::string const & target)
 		return ;
 	}
 	this->_energyPoints -= 25;
-	std::cout << "FR4G-TP " << this->_name << ": uses a special attack " << attacks[rand() % 6] << " on target " << target << " and humiliates it!!!" << std::endl;
-}
-
-int				FragTrap::getHP(void) const
-{
-	return this->_valueHit;
-}
-
-int				FragTrap::getEnergyPoints(void) const
-{
-	return this->_energyPoints;
-}
-
-std::string		FragTrap::getName(void) const
-{
-	return this->_name;
+	std::cout << "FR4G-TP " << this->_name << ": uses a special attack " << fight << " on target " << target << " and humiliates it!!!" << std::endl;
 }
 
 std::ostream & 	operator<<(std::ostream & o, FragTrap const & frag)
 {
-	o << "FR4G-TP " << frag.getName() << " status -> " <<
-		"Hit:" << frag.getHP() << ";"
-		"EnergyPoints:" << frag.getEnergyPoints() << std::endl;
+	o << "FR4G-TP " << frag.getName() << " stats:" << std::endl
+		<< "- HP: " << frag.getHP() << std::endl
+		<< "- maxHP: " << frag.getMaxHP() << std::endl
+		<< "- EnergyPoints: " << frag.getEnergyPoints() << std::endl
+		<< "- max EnergyPoints: " << frag.getMaxEnergyPoints() << std::endl
+		<< "- level: " << frag.getLevel() << std::endl
+		<< "- melee DMG: " << frag.getMeleeDamage() << std::endl
+		<< "- ranged DMG: " << frag.getRangedAttack() << std::endl
+		<< "- Armour: " << frag.getArmour() << std::endl;
 	return o;
 }
