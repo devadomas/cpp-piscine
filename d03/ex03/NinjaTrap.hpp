@@ -2,7 +2,9 @@
 # define NINJA_TRAP_HPP
 
 # include <iostream>
+# include "FragTrap.hpp"
 # include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
 
 class NinjaTrap : public ClapTrap
 {

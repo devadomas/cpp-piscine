@@ -24,6 +24,7 @@ NinjaTrap &			NinjaTrap::operator=(NinjaTrap const & src)
 		this->_valueHit = src._valueHit;
 		this->_maxHit = src._maxHit;
 		this->_energyPoints = src._energyPoints;
+		this->_maxEnergyPoints = src._maxEnergyPoints;
 		this->_level = src._level;
 		this->_meleeDamage = src._meleeDamage;
 		this->_rangedAttack = src._rangedAttack;
@@ -32,46 +33,46 @@ NinjaTrap &			NinjaTrap::operator=(NinjaTrap const & src)
 	return *this;
 }
 
-void				NinjaTrap::ninjaShoebox(ClapTrap const & src)
+void				NinjaTrap::ninjaShoebox(ClapTrap const & enemy)
 {
 	if (this->_energyPoints < 25)
 		std::cout << "INAC " << this->_name << ": aaah crap! There is not enough energy to make special attack!" << std::endl;
 	else
 	{
 		this->_energyPoints -= 25;
-		std::cout << "INAC " << this->_name << " attacks " << target << " with a ultimate fist punch!" << std::endl;
+		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a ultimate fist punch!" << std::endl;
 	}
 }
 
-void				NinjaTrap::ninjaShoebox(FragTrap const & src)
+void				NinjaTrap::ninjaShoebox(FragTrap const & enemy)
 {
 	if (this->_energyPoints < 25)
 		std::cout << "INAC " << this->_name << ": aaah crap! There is not enough energy to make special attack!" << std::endl;
 	else
 	{
 		this->_energyPoints -= 25;
-		std::cout << "INAC " << this->_name << " attacks " << target << " with a Pincer Attack!" << std::endl;
+		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a Pincer Attack!" << std::endl;
 	}
 }
 
-void				NinjaTrap::ninjaShoebox(ScavTrap const & src)
+void				NinjaTrap::ninjaShoebox(ScavTrap const & enemy)
 {
 	if (this->_energyPoints < 25)
 		std::cout << "INAC " << this->_name << ": aaah crap! There is not enough energy to make special attack!" << std::endl;
 	else
 	{
 		this->_energyPoints -= 25;
-		std::cout << "INAC " << this->_name << " attacks " << target << " with a Viva La Robolution Attack!" << std::endl;
+		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a Viva La Robolution Attack!" << std::endl;
 	}
 }
 
-void				NinjaTrap::ninjaShoebox(NinjaTrap const & src)
+void				NinjaTrap::ninjaShoebox(NinjaTrap const & enemy)
 {
 	if (this->_energyPoints < 25)
 		std::cout << "INAC " << this->_name << ": aaah crap! There is not enough energy to make special attack!" << std::endl;
 	else
 	{
 		this->_energyPoints -= 25;
-		std::cout << "INAC " << this->_name << " attacks " << target << " with a Shoryuken Attack!" << std::endl;
+		std::cout << "INAC " << this->_name << " attacks " << enemy.getName() << " with a Shoryuken Attack!" << std::endl;
 	}
 }
