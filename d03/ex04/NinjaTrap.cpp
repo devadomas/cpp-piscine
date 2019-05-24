@@ -15,7 +15,7 @@ NinjaTrap::NinjaTrap(std::string const & name):
 
 NinjaTrap::~NinjaTrap(void)
 {
-	std::cout << "INAC " << this->_name << "has been destroyed... MurderDeathKill! Annihilate! Extermin-" << std::endl;
+	std::cout << "INAC " << this->_name << " has been destroyed... MurderDeathKill! Annihilate! Extermin-" << std::endl;
 }
 
 NinjaTrap::NinjaTrap(NinjaTrap const & src)
