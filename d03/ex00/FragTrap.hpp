@@ -1,5 +1,5 @@
-#ifndef FRAG_TRAP_HPP
-# define FRAG_TRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include <string>
 
