@@ -1,5 +1,5 @@
-#ifndef CLAPTRAP_CLASS_HPP
-#define CLAPTRAP_CLASS_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
 #include <string>
 
@@ -60,7 +60,7 @@ protected:
 	int			_meleeDamage;
 	int			_rangedAttack;
 	int			_armor;
-	
+
 };
 
 std::ostream & 	operator<<(std::ostream & o, ClapTrap const & clap);
