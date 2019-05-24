@@ -21,9 +21,10 @@ public:
 
 	virtual ~ClapTrap(void);
 	ClapTrap(ClapTrap const & src);
+	ClapTrap &	operator=(ClapTrap const & src);
 
-	virtual void	rangedAttack(std::string const & target);
-	virtual void	meleeAttack(std::string const & target);
+	void		rangedAttack(std::string const & target);
+	void		meleeAttack(std::string const & target);
 	void		takeDamage(unsigned int amount);
 	void		beRepaired(unsigned int amount);
 
@@ -37,9 +38,9 @@ public:
 	int			getRangedAttack(void) const;
 	int			getArmour(void) const;
 
+	void		setName(std::string const & name);
 	void		setHP(int value);
 	void		setEnergyPoints(int value);
-	void		setName(std::string const & name);
 	void		setMaxHP(int value);
 	void		setMaxEnergyPoints(int value);
 	void		setLevel(int value);
@@ -60,8 +61,6 @@ protected:
 	int			_rangedAttack;
 	int			_armor;
 
-private:
-	ClapTrap &	operator=(ClapTrap const & src);
 };
 
 std::ostream & 	operator<<(std::ostream & o, ClapTrap const & clap);
