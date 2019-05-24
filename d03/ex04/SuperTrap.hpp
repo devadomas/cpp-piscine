@@ -1,5 +1,5 @@
-#ifndef SUPER_TRAP_HPP
-# define SUPER_TRAP_HPP
+#ifndef SUPERTRAP_HPP
+# define SUPERTRAP_HPP
 
 # include "ClapTrap.hpp"
 # include "FragTrap.hpp"

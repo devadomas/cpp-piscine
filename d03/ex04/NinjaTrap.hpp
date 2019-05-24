@@ -1,5 +1,5 @@
-#ifndef NINJA_TRAP_HPP
-# define NINJA_TRAP_HPP
+#ifndef NINJATRAP_HPP
+# define NINJATRAP_HPP
 
 # include <iostream>
 # include "FragTrap.hpp"

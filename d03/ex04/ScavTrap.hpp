@@ -1,5 +1,5 @@
-#ifndef		SCAVTRAP_CLASS_CPP
-# define	SCAVTRAP_CLASS_CPP
+#ifndef		SCAVTRAP_CPP
+# define	SCAVTRAP_CPP
 
 # include "ClapTrap.hpp"
 
