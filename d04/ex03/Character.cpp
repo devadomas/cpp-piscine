@@ -21,8 +21,8 @@ Character::~Character(void)
 }
 
 Character::Character(Character const & src)
-{ // *this = src;
-	this->_name = src._name;
+{
+	this->_name = src.getName();
 	for (int i = 0; i < 4; i++)
 		if (this->_arr[i])
 			this->_arr[i] = src._arr[i]->clone();

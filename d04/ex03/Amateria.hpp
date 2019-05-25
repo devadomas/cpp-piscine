@@ -6,6 +6,7 @@
 class AMateria
 {
 public:
+	AMateria(void);
 	AMateria(std::string const & type);
 	AMateria(AMateria const & src);
 	virtual ~AMateria(void);
@@ -23,7 +24,6 @@ private:
 
 
 protected:
-	AMateria(void);
 	void			setType(std::string const & type);
 	void			setXP(int xp);
 };

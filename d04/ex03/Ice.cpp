@@ -2,13 +2,8 @@
 #include "Ice.hpp"
 
 Ice::Ice(void): AMateria("ice") { }
-
 Ice::~Ice(void) { }
-
-Ice::Ice(Ice const & src)
-{
-	*this = src;
-}
+Ice::Ice(Ice const & src) { *this = src; }
 
 Ice &		Ice::operator=(Ice const & src)
 {
@@ -24,7 +19,7 @@ Ice &		Ice::operator=(Ice const & src)
 
 void		Ice::use(ICharacter & target)
 {
-	std::cout << "* shoots an ce bolt at " << target.getName() << " *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 	AMateria::use(target);
 }
 

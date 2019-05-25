@@ -10,8 +10,8 @@ AMateria &					AMateria::operator=(AMateria const & src)
 {
 	if (this != &src)
 	{
-		this->xp_ = src.xp_;
-		this->_type = src._type;
+		this->xp_ = src.getXP();
+		this->_type = src.getType();
 	}
 	return *this;
 }

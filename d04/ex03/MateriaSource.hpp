@@ -10,15 +10,15 @@ class MateriaSource: public IMateriaSource
 public:
 	MateriaSource(void);
 	virtual ~MateriaSource(void);
-	MateriaSource(MateriaSource const & src);
-	MateriaSource &			operator=(MateriaSource const & src);
 
 	// fun stuff
 	void					learnMateria(AMateria *);
 	AMateria *				createMateria(std::string const & type);
 
 private:
-	std::string		_type;
+	MateriaSource(MateriaSource const & src);
+	MateriaSource &			operator=(MateriaSource const & src);
+	
 	AMateria *		_materia[4];
 };
 

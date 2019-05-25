@@ -5,14 +5,10 @@ MateriaSource::MateriaSource(void)
 	for (int i = 0; i < 4; i++)
 		this->_materia[i] = NULL;
 }
-MateriaSource::MateriaSource(MateriaSource const &) {} // impament later
+MateriaSource::MateriaSource(MateriaSource const &) { }
 MateriaSource::~MateriaSource(void) { }
 
-MateriaSource & 	MateriaSource::operator=(MateriaSource const &)
-{
-	// add stuff for copy
-	return *this;
-}
+MateriaSource & 	MateriaSource::operator=(MateriaSource const &) { return *this; }
 
 //
 

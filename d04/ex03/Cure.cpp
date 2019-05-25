@@ -2,13 +2,8 @@
 #include "Cure.hpp"
 
 Cure::Cure(void): AMateria("cure") { }
-
 Cure::~Cure(void) { }
-
-Cure::Cure(Cure const & src)
-{
-	*this = src;
-}
+Cure::Cure(Cure const & src) { *this = src; }
 
 Cure &		Cure::operator=(Cure const & src)
 {
