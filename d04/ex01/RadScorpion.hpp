@@ -1,5 +1,5 @@
-#ifndef RAD_SCORPION_CLASS_HPP
-# define RAD_SCORPION_CLASS_HPP
+#ifndef RAD_SCORPION_HPP
+# define RAD_SCORPION_HPP
 
 # include "Enemy.hpp"
 
@@ -11,7 +11,6 @@ public:
 	virtual ~RadScorpion(void);
 	RadScorpion &	operator=(RadScorpion const & src);
 
-	void			takeDamage(int damage);
 };
 
 #endif

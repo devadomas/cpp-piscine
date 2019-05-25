@@ -1,5 +1,5 @@
-#ifndef SUPER_MUTANT_CLASS_HPP
-# define SUPER_MUTANT_CLASS_HPP
+#ifndef SUPER_MUTANT_HPP
+# define SUPER_MUTANT_HPP
 
 # include "Enemy.hpp"
 

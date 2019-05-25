@@ -34,5 +34,32 @@ int			main(void)
 	zaz->attack(b);
 	std::cout << *zaz;
 
+	delete zaz;
+	delete b;
+	delete pr;
+	delete pf;
+
+	std::cout << "-- more tests --" << std::endl;
+
+	Character		charr("Some");
+	PlasmaRifle		some;
+	RadScorpion		scorp;
+
+	charr.equip(&some);
+	std::cout << charr;
+	charr.attack(&scorp);
+	std::cout << charr;
+
+	std::cout << "--- Assignation test ---" << std::endl;
+	Character		asign = charr;
+
+	std::cout << asign;
+
+	std::cout << "--- Copy test ---" << std::endl;
+
+	Character		copy(asign);
+	std::cout << copy;
+
+	std::cout << "--- END OF PROGRAM ---" << std::endl;
 	return 0;
 }

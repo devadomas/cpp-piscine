@@ -10,6 +10,7 @@ public:
 	PowerFist(PowerFist const & src);
 	virtual ~PowerFist(void);
 	PowerFist &			operator=(PowerFist const & src);
+
 	void				attack(void) const;
 };
 

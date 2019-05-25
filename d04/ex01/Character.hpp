@@ -1,5 +1,5 @@
-#ifndef CHARACTER_CLASS_HPP
-# define CHARACTER_CLASS_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 # include <string>
 # include "AWeapon.hpp"
@@ -10,15 +10,19 @@ class Character
 public:
 	Character(std::string const & name);
 	Character(Character const & src);
-	~Character();
+	virtual				~Character();
 	Character &			operator=(Character const & src);
 
 	void				recoverAP(void);
 	void				equip(AWeapon *wpn);
 	void				attack(Enemy *enemy);
+
 	std::string			getName(void) const;
 	AWeapon *			getWeapon(void) const;
 	int					getAP(void) const;
+
+protected:
+	Character(void);
 
 private:
 	std::string			_name;
