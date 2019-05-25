@@ -7,9 +7,9 @@ class TacticalMarine: public ISpaceMarine
 {
 public:
 	TacticalMarine(void);
-	~TacticalMarine(void);
+	virtual ~TacticalMarine(void);
 	TacticalMarine(TacticalMarine const & src);
-	TacticalMarine &	operator=(TacticalMarine const & src);
+	TacticalMarine &	operator=(TacticalMarine const &);
 
 	ISpaceMarine*		clone(void) const;
 

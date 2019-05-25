@@ -1,7 +1,6 @@
 #ifndef SQUAD_HPP
 #define SQUAD_HPP
 
-#define NULL 0
 #define NBR_MARINES	30
 
 #include "ISquad.hpp"
@@ -11,12 +10,13 @@ class Squad : public ISquad
 {
 public:
 	Squad(void);
-	~Squad(void);
+	virtual ~Squad(void);
 	Squad(Squad const & src);
 	Squad &		operator=(Squad const & src);
 
 	int					getCount(void) const;
 	ISpaceMarine *		getUnit(int n) const;
+
 	int					push(ISpaceMarine * marine);
 
 private:
