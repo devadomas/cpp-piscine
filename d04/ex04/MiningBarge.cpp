@@ -9,7 +9,6 @@ MiningBarge::MiningBarge(void)
 MiningBarge::~MiningBarge(void) { }
 MiningBarge::MiningBarge(MiningBarge const & src)
 {
-	// *this = src;
 	for (int i = 0; i < 4; i++)
 		if (src._arr[i])
 			this->_arr[i] = src._arr[i];
