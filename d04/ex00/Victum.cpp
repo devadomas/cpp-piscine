@@ -13,10 +13,7 @@ Victum::~Victum(void)
 	std::cout << "Victum " << this->_name << " just died for no apparent reason !" << std::endl;
 }
 
-Victum::Victum(Victum const & src)
-{
-	*this = src;
-}
+Victum::Victum(Victum const & src) { *this = src; }
 
 Victum &		Victum::operator=(Victum const & src)
 {
@@ -25,18 +22,8 @@ Victum &		Victum::operator=(Victum const & src)
 	return *this;
 }
 
-std::string		Victum::getName(void) const
-{
-	return this->_name;
-}
-
-bool			Victum::setName(std::string const & name)
-{
-	if (name.length() == 0)
-		return (false);
-	this->_name = name;
-	return (true);
-}
+std::string		Victum::getName(void) const { return this->_name; }
+void			Victum::setName(std::string const & name) { this->_name = name; }
 
 std::ostream & operator<<(std::ostream & o, Victum const & vic)
 {

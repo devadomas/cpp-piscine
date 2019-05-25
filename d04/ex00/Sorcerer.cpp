@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Sorcerer.hpp"
 
-Sorcerer::Sorcerer(void) {}
+Sorcerer::Sorcerer(void) { } // should never be called
 
 Sorcerer::Sorcerer(std::string name, std::string title): _name(name), _title(title)
 {
@@ -28,31 +28,10 @@ Sorcerer::~Sorcerer(void)
 	std::cout << this->_name << ", " << this->_title << ", is dead. Consequences will never be the same !" << std::endl;
 }
 
-std::string		Sorcerer::getName(void) const
-{
-	return this->_name;
-}
-
-bool			Sorcerer::setName(std::string const & name)
-{
-	if (name.length() == 0)
-		return false;
-	this->_name = name;
-	return true;
-}
-
-std::string		Sorcerer::getTitle(void) const
-{
-	return this->_title;
-}
-
-bool			Sorcerer::setTitle(std::string const & title)
-{
-	if (title.length() == 0)
-		return false;
-	this->_title = title;
-	return true;
-}
+std::string		Sorcerer::getName(void) const { return this->_name; }
+void 			Sorcerer::setName(std::string const & name) { this->_name = name; }
+std::string		Sorcerer::getTitle(void) const { return this->_title; }
+void			Sorcerer::setTitle(std::string const & title) { this->_title = title; }
 
 std::ostream & operator<<(std::ostream & o, Sorcerer const & sor)
 {

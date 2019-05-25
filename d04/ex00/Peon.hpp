@@ -7,7 +7,6 @@
 class Peon : public Victum
 {
 public:
-	Peon(void);
 	Peon(std::string name);
 	Peon(Peon const & src);
 	virtual ~Peon(void);
@@ -15,7 +14,7 @@ public:
 	void		getPolymorphed(void) const;
 
 private:
-	std::string		_name;
+	Peon(void);
 };
 
 #endif

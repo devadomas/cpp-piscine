@@ -21,7 +21,7 @@ Peon::Peon(Peon const & src)
 Peon &			Peon::operator=(Peon const & src)
 {
 	if (this != &src)
-		this->_name = src.getName();
+		this->setName(src.getName());
 	return *this;
 }
 
