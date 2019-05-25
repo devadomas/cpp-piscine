@@ -2,7 +2,7 @@
 
 NAME 		= 	battle
 
-SRCS		=	StripMiner.cpp MiningBarge.cpp DeepCoreMiner.cpp BocalSteroid.cpp AsteroBocal.cpp main.cpp
+SRCS		=	StripMiner.cpp MiningBarge.cpp DeepCoreMiner.cpp KoalaSteroid.cpp AsteroKreog.cpp main.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 CC 			=	clang++

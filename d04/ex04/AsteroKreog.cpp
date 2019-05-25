@@ -1,4 +1,4 @@
-#include "AsteroBocal.hpp"
+#include "AsteroKreog.hpp"
 
 AsteroBocal::AsteroBocal(void) { }
 AsteroBocal::~AsteroBocal(void) { }

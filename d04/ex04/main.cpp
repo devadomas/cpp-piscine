@@ -1,5 +1,5 @@
-#include "AsteroBocal.hpp"
-#include "BocalSteroid.hpp"
+#include "AsteroKreog.hpp"
+#include "KoalaSteroid.hpp"
 #include "DeepCoreMiner.hpp"
 #include "MiningBarge.hpp"
 #include "StripMiner.hpp"
