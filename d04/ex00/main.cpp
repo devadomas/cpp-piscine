@@ -15,7 +15,6 @@ int		main(void)
 	robert.polymorph(jim);
 	robert.polymorph(joe);
 
-	std::cout << "Test's begone!!!" << std::endl;
 	Sorcerer		john(robert); // Test for copy constructor
 	john.polymorph(jim);
 	std::cout << "--- /Given tests ---" << std::endl;

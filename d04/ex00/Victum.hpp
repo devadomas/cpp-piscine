@@ -17,8 +17,9 @@ public:
 	virtual void	getPolymorphed(void) const;
 
 private:
-	Victum(void);
 	std::string		_name;
+protected:
+	Victum(void);
 };
 
 std::ostream & operator<<(std::ostream & o, Victum const & vic);
