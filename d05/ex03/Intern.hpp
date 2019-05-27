@@ -16,13 +16,13 @@ public:
 	Form *		makeShrubberyCreationForm(std::string const) const;
 
 	// exceptions
-	class InternNoFormFound : public std::exception
+	class InternNoFormFoundException : public std::exception
 	{
 		public:
-			InternNoFormFound(void);
-			InternNoFormFound(InternNoFormFound const &);
-			virtual ~InternNoFormFound(void) throw();
-			InternNoFormFound &		operator=(InternNoFormFound const &);
+			InternNoFormFoundException(void);
+			InternNoFormFoundException(InternNoFormFoundException const &);
+			virtual ~InternNoFormFoundException(void) throw();
+			InternNoFormFoundException &		operator=(InternNoFormFoundException const &);
 			virtual const char *		what(void) const throw();
 	};
 };

@@ -40,8 +40,8 @@ Form *			Intern::makeForm(std::string const & request, std::string const target)
 	return NULL;
 }
 
-Intern::InternNoFormFound::InternNoFormFound(void) { }
-Intern::InternNoFormFound::~InternNoFormFound(void) throw() { }
-Intern::InternNoFormFound::InternNoFormFound(InternNoFormFound const &src) { *this = src; }
-Intern::InternNoFormFound & Intern::InternNoFormFound::operator=(Intern::InternNoFormFound const &) { return *this; }
-const char * Intern::InternNoFormFound::what(void) const throw() { return ("no matching form found"); }
+Intern::InternNoFormFoundException::InternNoFormFoundException(void) { }
+Intern::InternNoFormFoundException::~InternNoFormFoundException(void) throw() { }
+Intern::InternNoForInternNoFormFoundExceptionmFound::InternNoFormFoundException(InternNoFormFoundException const &src) { *this = src; }
+Intern::InternNoFormFoundException & Intern::InternNoFormFoundException::operator=(Intern::InternNoFormFoundException const &) { return *this; }
+const char * Intern::InternNoFormFoundException::what(void) const throw() { return ("no matching form found"); }
