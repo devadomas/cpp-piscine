@@ -38,8 +38,10 @@ public:
 			virtual const char *		what(void) const throw();
 	};
 	//
+protected:
+		Form(void); // for future classes
+
 private:
-	Form(void);
 
 	std::string			_name;
 	bool						_signed;
