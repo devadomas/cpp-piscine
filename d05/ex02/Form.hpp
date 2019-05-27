@@ -15,6 +15,7 @@ public:
 	Form &		operator=(Form const &);
 	//
 	void		beSigned(Bureaucrat const &);
+	virtual void execute(Bureaucrat const &) const;
 	//
 	std::string	getName(void) const;
 	bool		isSigned(void) const;
@@ -35,6 +36,15 @@ public:
 			GradeTooLowException(GradeTooLowException const &);
 			virtual ~GradeTooLowException(void) throw();
 			GradeTooLowException &		operator=(GradeTooLowException const &);
+			virtual const char *		what(void) const throw();
+	};
+	class FormIsNotSignedException : public std::exception
+	{
+		public:
+			FormIsNotSignedException(void);
+			FormIsNotSignedException(FormIsNotSignedException const &);
+			virtual ~FormIsNotSignedException(void) throw();
+			FormIsNotSignedException &		operator=(FormIsNotSignedException const &);
 			virtual const char *		what(void) const throw();
 	};
 	//
