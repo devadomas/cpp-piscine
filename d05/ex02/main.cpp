@@ -1,48 +1,39 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int			main(void)
 {
-	Bureaucrat		test("Test bot", 5);
+	Bureaucrat		test("Test bot", 1); // Bureaucrat with highest level possible
+	std::cout << "We have a superior Bureaucrat: " << std::endl;
+	std::cout << test;
 
-	std::cout << "--- Test for form initialisation ---" << std::endl;
+	std::cout << "--- We have something to sign ---" << std::endl;
+
+	PresidentialPardonForm		president("Miss Pressidency");
+	std::cout << president;
+
 	try
 	{
-		Form		form("Super Form", 151, 2);
+		president.execute(test);
 	}
-	catch (Form::GradeTooLowException & e)
+	catch(Form::FormIsNotSignedException & e)
 	{
-		std::cout << "Error occured why initialising: " << e.what() << std::endl;
+		std::cout << "Error occured while trying to execute: " << e.what() << std::endl;
 	}
-	catch (Form::GradeTooHighException & e)
-	{
-		std::cout << "Error occured why initialising: " << e.what() << std::endl;
-	}
-	std::cout << "--- Test for signing a from ---" << std::endl;
-
-	Form		form("Super from", 6, 6);
-	test.signForm(form);
-	std::cout << "---- Some log info ----" << std::endl;
-	std::cout << form;
-	//
-	std::cout << "--- Trying to sign form with a lowee grade bureaucrat ---" << std::endl;
-	Form		form1("Not that great form", 1, 1);
-	test.signForm(form1);
-	//
-	std::cout << "--- Test before from would be signed ---" << std::endl;
-	Form		form2("High level form", 1, 1);
+	std::cout << "--- Well if from is not singed. We have sign it! ---" << std::endl;
+	test.signForm(president);
+	std::cout << "--- We signed it so it's time to execute!!! ---" << std::endl;
 	try
 	{
-		form2.beSigned(test);
-		std::cout << test.getName() << " can sign form " << form2.getName() << std::endl;
+		president.execute(test);
 	}
-	catch (Form::GradeTooLowException & e)
+	catch(Form::FormIsNotSignedException & e)
 	{
-		std::cout << "form cannot be signed because: " << e.what() << std::endl;
+		std::cout << "Error occured while trying to execute: " << e.what() << std::endl;
 	}
-	catch (Form::GradeTooHighException & e)
-	{
-		std::cout << "form cannot be signed because: " << e.what() << std::endl;
-	}
+	std::cout << "--- A little bit of action() for the end ---" << std::endl;
+	president.action();
 }
