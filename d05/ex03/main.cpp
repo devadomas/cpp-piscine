@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Intern.hpp"
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -6,41 +7,30 @@
 
 int			main(void)
 {
-	Bureaucrat		test("Test bot", 1); // Bureaucrat with highest level possible
-	std::cout << "We have a superior Bureaucrat: " << std::endl;
-	std::cout << test;
+	std::cout << "-- So it's time to give some work for poor intern --" << std::endl;
+	Intern			john;
+	std::string		arr[] = {
+		"robotomy request",
+		"presidential pardon",
+		"shrubbery creation",
+		"some random garbage"
+	};
 
-	std::cout << "--- We have something to sign ---" << std::endl;
+	Form 			*form;
 
-	PresidentialPardonForm		president("Miss Pressidency");
-	std::cout << president;
-
-	try
+	for (int i = 0; i < 4; i++)
 	{
-		president.execute(test);
+		std::cout << "-----" << std::endl;
+		try
+		{
+			form = john.makeForm(arr[i], "Dope things to pass");
+			std::cout << "Intern did a amazing job and created form" << std::endl;
+		}
+		catch (Intern::InternNoFormFoundException & e)
+		{
+			std::cout << "Intern was not able to create form because: " << e.what() << std::endl;
+		}
+		delete form;
+		form = NULL;
 	}
-	catch(Form::FormIsNotSignedException & e)
-	{
-		std::cout << "Error occured while trying to execute: " << e.what() << std::endl;
-	}
-	std::cout << "--- Well if from is not singed. We have sign it! ---" << std::endl;
-	test.signForm(president);
-	std::cout << "--- We signed it so it's time to execute!!! ---" << std::endl;
-	try
-	{
-		president.execute(test);
-	}
-	catch(Form::FormIsNotSignedException & e)
-	{
-		std::cout << "Error occured while trying to execute: " << e.what() << std::endl;
-	}
-	std::cout << "--- A little bit of action() for the end ---" << std::endl;
-	president.action();
-
-	std::cout << "-- another form for testing of executeForm() from Bureaucrat" << std::endl;
-	ShrubberyCreationForm				hardTitleForm("Some simple form");
-	test.executeForm(hardTitleForm);
-	test.signForm(hardTitleForm);
-	std::cout << "-- well finally I can try executeForm command --" << std::endl;
-	test.executeForm(hardTitleForm);
 }
