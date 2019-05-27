@@ -36,4 +36,11 @@ int			main(void)
 	}
 	std::cout << "--- A little bit of action() for the end ---" << std::endl;
 	president.action();
+
+	std::cout << "-- another form for testing of executeForm() from Bureaucrat" << std::endl;
+	ShrubberyCreationForm				hardTitleForm("Some simple form");
+	test.executeForm(hardTitleForm);
+	test.signForm(hardTitleForm);
+	std::cout << "-- well finally I can try executeForm command --" << std::endl;
+	test.executeForm(hardTitleForm);
 }
