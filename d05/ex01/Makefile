@@ -2,7 +2,7 @@
 
 NAME 		= 	bureaucrat
 
-SRCS		=	Bureaucrat.cpp main.cpp
+SRCS		=	Form.cpp Bureaucrat.cpp main.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 CC 			=	clang++

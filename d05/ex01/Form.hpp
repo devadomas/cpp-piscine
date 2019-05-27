@@ -4,11 +4,12 @@
 #include <string>
 #include <iostream>
 #include <stdexcept>
+#include "Bureaucrat.hpp"
 
 class Form
 {
 public:
-	Form(std::string const, int, int )
+	Form(std::string const, int, int);
 	virtual		~Form(void);
 	Form(Form const &);
 	Form &		operator=(Form const &);
@@ -40,11 +41,13 @@ public:
 private:
 	Form(void);
 
-	const std::string			_name;
+	std::string			_name;
 	bool						_signed;
-	const int					_gradeSign;
-	const int					_gradeExecute;
+	int					_gradeSign;
+	int					_gradeExecute;
 
 };
+
+std::ostream &			operator<<(std::ostream &, Form const &);
 
 #endif

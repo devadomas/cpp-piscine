@@ -1,12 +1,10 @@
 #include "Form.hpp"
 
 Form::Form(void) { }
-Form::~Form(void) {}
+Form::~Form(void) { }
 
 Form::Form(std::string const name, int gradeSign, int gradeExecute):
 	_name(name),
-	// _gradeSign(gradeSign),
-	// _gradeExecute(gradeExecute),
 	_signed(false)
 {
 	if (gradeSign < 1 || gradeExecute < 1)
@@ -38,7 +36,15 @@ void			Form::beSigned(Bureaucrat const & obj)
 	if (obj.getGrade() > this->_gradeSign) // if Bureaucrat grade is too low
 		throw Form::GradeTooLowException();
 	this->_signed = true;
-	obj.signForm(*this);
+
+}
+
+std::ostream &			operator<<(std::ostream & o, Form const & form)
+{
+	o << "Form status: " << std::endl
+		<< "Name: " << form.getName() << std::endl
+		<< "Signed status: " << form.isSigned() << std::endl;
+	return o;
 }
 
 
