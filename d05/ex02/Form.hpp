@@ -14,8 +14,9 @@ public:
 	Form(Form const &);
 	Form &		operator=(Form const &);
 	//
-	void		beSigned(Bureaucrat const &);
-	virtual void execute(Bureaucrat const &) const;
+	void				beSigned(Bureaucrat const &);
+	void				execute(Bureaucrat const &) const;
+	virtual void		action( void ) const = 0;
 	//
 	std::string	getName(void) const;
 	bool		isSigned(void) const;

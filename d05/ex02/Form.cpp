@@ -41,12 +41,11 @@ void			Form::beSigned(Bureaucrat const & obj)
 
 void			Form::execute(Bureaucrat const & bur) const
 {
-	if (!his->_signed)
+	if (!this->_signed)
 		throw Form::FormIsNotSignedException();
 	if (bur.getGrade() > this->_gradeExecute)
 		throw Form::GradeTooLowException();
 	std::cout << bur.getName() << " has executed " << this->_name << " successfully!" << std::endl;
- 	this->action();
 }
 
 std::ostream &			operator<<(std::ostream & o, Form const & form)
@@ -73,5 +72,5 @@ const char * Form::GradeTooHighException::what(void) const throw() { return ("Gr
 Form::FormIsNotSignedException::FormIsNotSignedException(void) { }
 Form::FormIsNotSignedException::~FormIsNotSignedException(void) throw() { }
 Form::FormIsNotSignedException::FormIsNotSignedException(FormIsNotSignedException const &src) { *this = src; }
-Form::FormIsAlreadySignedException & Form::FormIsAlreadySignedException::operator=(Form::FormIsNotSignedException const &) { return *this; }
+Form::FormIsNotSignedException & Form::FormIsNotSignedException::operator=(Form::FormIsNotSignedException const &) { return *this; }
 const char * Form::FormIsNotSignedException::what(void) const throw() { return ("form is not signed"); }
