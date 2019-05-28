@@ -11,7 +11,7 @@ struct Data
 static std::string		randomString(void)
 {
 	std::string			str("");
-	std::string			abc("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+	std::string			abc("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
 	for (int i = 0; i < 8; i++)
 		str += abc[static_cast<unsigned long>(rand()) % 62];
