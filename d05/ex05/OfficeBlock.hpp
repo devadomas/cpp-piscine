@@ -12,7 +12,7 @@ public:
 	OfficeBlock(void);
 	OfficeBlock(Intern *, Bureaucrat *, Bureaucrat *);
 	OfficeBlock &	operator=(OfficeBlock const &);
-	~OfficeBlock(void);
+	virtual ~OfficeBlock(void);
 
 	void			setIntern(Intern *);
 	void			setSigner(Bureaucrat *);

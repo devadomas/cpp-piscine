@@ -11,7 +11,7 @@ class CentralBureaucracy
 {
 public:
 	CentralBureaucracy(void);
-	~CentralBureaucracy(void);
+	virtual ~CentralBureaucracy(void);
 
 	void		feed(Bureaucrat *);
 	void		queueUp(std::string const &);
