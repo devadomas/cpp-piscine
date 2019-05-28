@@ -7,12 +7,14 @@ CentralBureaucracy::~CentralBureaucracy(void) { }
 CentralBureaucracy::CentralBureaucracy(CentralBureaucracy const &src) { *this = src; }
 CentralBureaucracy &	CentralBureaucracy::operator=(CentralBureaucracy const & src)
 {
-	if (this != src)
+	if (this != &src)
 	{
-		this->_officeBlocks = src._officeBlocks;
+		for (int i = 0; i < src._officeBlocksSize; i++)
+			this->_officeBlocks[i] = src._officeBlocks[i];
 		this->_officeBlocksSize = src._officeBlocksSize;
 		this->_targetSize = src._targetSize;
-		this->_targetQueue =src._targetQueue;
+		for (int i = 0; i < src._targetSize; i++)
+			this->_targetQueue[i] = src._targetQueue[i];
 	}
 	return *this;
 }
@@ -23,8 +25,9 @@ void					CentralBureaucracy::feed(Bureaucrat * beur)
 	if (this->_officeBlocksSize == 20)
 		throw CentralBureaucracy::OfficesFullException();
 
-	Intern	intern;
-	this->_officeBlocks[this->_officeBlocksSize] = OfficeBlock(&intern, &beur, &beur);
+	Intern		intern;
+	OfficeBlock	office(&intern, beur, beur);
+	this->_officeBlocks[this->_officeBlocksSize] = office;
 	this->_officeBlocksSize++;
 }
 
@@ -32,8 +35,8 @@ void					CentralBureaucracy::queueUp(std::string const & str)
 {
 	if (this->_targetSize == TARGET_MAX_SIZE)
 		throw CentralBureaucracy::QueueIsFullException();
-	this->_targetQueue[this->_officeBlocksSize] = str;
-	this->_officeBlocksSize++;
+	this->_targetQueue[this->_targetSize] = str;
+	this->_targetSize++;
 }
 
 void					CentralBureaucracy::doBureaucracy(void) const
@@ -47,7 +50,11 @@ void					CentralBureaucracy::doBureaucracy(void) const
 			"shrubbery creation"
 		};
 		for (int j = 0; j < this->_targetSize; j++)
-			this->_officeBlocks[i].doBureaucracy(formType[rand() % 3], this->_targetQueue[j]);
+		{
+			std::string		form = formType[rand() % 3];
+			std::cout << "office is about to do " << form << " type!" << std::endl;
+			this->_officeBlocks[i].doBureaucracy(form, this->_targetQueue[j]);
+		}
 	}
 }
 

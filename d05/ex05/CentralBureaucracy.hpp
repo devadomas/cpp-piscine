@@ -1,6 +1,10 @@
 #ifndef CENTRALBUREAUCRACY_HPP
 #define CENTRALBUREAUCRACY_HPP
 
+#include <string>
+#include "OfficeBlock.hpp"
+#include "Bureaucrat.hpp"
+
 #define TARGET_MAX_SIZE		25
 
 class CentralBureaucracy
