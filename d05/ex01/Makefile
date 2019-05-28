@@ -6,7 +6,7 @@ SRCS		=	Form.cpp Bureaucrat.cpp main.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 CC 			=	clang++
-CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
+CFLAGS		= 	-Wall -Wextra -Werror -std=c++98 -pedantic-errors
 OCFLAGS		=	-Wall -Wextra -Werror
 
 all:	 		$(NAME)
