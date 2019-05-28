@@ -1,4 +1,6 @@
+#include <sstream>
 #include <iostream>
+#include "CentralBureaucracy.hpp"
 #include "OfficeBlock.hpp"
 #include "Intern.hpp"
 #include "Bureaucrat.hpp"
@@ -8,27 +10,48 @@
 
 int			main(void)
 {
-	std::cout << "--- Creatimg empty office ---" << std::endl;
-	Intern						intern;
-	Bureaucrat					signer("Signer", 1);
-	Bureaucrat					executor("Executor", 1);
-	OfficeBlock					office;
+	CentralBureaucracy			bigHouse;
 
-	std::cout << "--- Now we will try to set people to work! ---" << std::endl;
-	office.setIntern(&intern);
-	office.setSigner(&signer);
-	office.setExecutor(&executor);
+	std::cout << "--- Testing for office size ---" << std::endl;
+	for (int i = 0; i < 25; i++)
+	{
+		std::ostringstream s;
+		s << "Test Bureaucrat " << i;
+		Bureaucrat *		beur = new Bureaucrat(s.str(), rand() % 25);
+
+		try
+		{
+			bigHouse.feed(beur);
+			std::cout << s.str() << " was successfully assigned to office!" << std::endl;
+		}
+		catch (CentralBureaucracy::OfficesFullException & e)
+		{
+			std::cout << "cough exception of: " << e.what() << std::endl;
+		}
+	}
+	std::cout << "--- Testing of target addition ---" << std::endl;
+
+	for (int i = 0; i < 30; i++)
+	{
+		std::ostringstream s;
+		s << "Test target " << i;
+		try
+		{
+			bigHouse.queueUp(s.str());
+			std::cout << s.str() << " was successfully queuedUP!" << std::endl;
+		}
+		catch(CentralBureaucracy::QueueIsFullException & e)
+		{
+			std::cout << "cought exception of: " << e.what() << std::endl;
+		}
+	}
+	std::cout << "--- Lastly let's try to do some bureaucracy ---" << std::endl;
 	try
 	{
-		office.doBureaucracy("robotomy reques1t", "Some guy");
+		bigHouse.doBureaucracy();
 	}
-	catch (OfficeBlock::OfficeNotFilledException & e)
+	catch(std::exception & e)
 	{
-		std::cout << "Error occured: " << e.what() << std::endl;
-	}
-	catch (std::exception & e)
-	{
-		/* oh god, unknown error, what to do ?! */
-		std::cout << "Exception cought: " << e.what() << std::endl;
+		std::cout << "exception cought: " << e.what() << std::endl;
 	}
 }
