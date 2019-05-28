@@ -1,4 +1,5 @@
 #include <iostream>
+#include "OfficeBlock.hpp"
 #include "Intern.hpp"
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -7,30 +8,31 @@
 
 int			main(void)
 {
-	std::cout << "-- So it's time to give some work for poor intern --" << std::endl;
-	Intern			john;
-	std::string		arr[] = {
-		"robotomy request",
-		"presidential pardon",
-		"shrubbery creation",
-		"some random garbage"
-	};
+	std::cout << "--- Creatimg empty office ---" << std::endl;
+	Intern						intern;
+	Bureaucrat					signer("Signer", 1);
+	Bureaucrat					executor("Executor", 1);
+	OfficeBlock					office;
+	PresidentialPardonForm		form("haha");
 
-	Form 			*form;
-
-	for (int i = 0; i < 4; i++)
+	try
 	{
-		std::cout << "-----" << std::endl;
-		try
-		{
-			form = john.makeForm(arr[i], "Dope things to pass");
-			std::cout << "Intern did a amazing job and created form" << std::endl;
-		}
-		catch (Intern::InternNoFormFoundException & e)
-		{
-			std::cout << "Intern was not able to create form because: " << e.what() << std::endl;
-		}
-		delete form;
-		form = NULL;
+		office.doBureaucracy(form, "Some guy");
+	}
+	catch (OfficeBlock::OfficeNotFilledException & e)
+	{
+		std::cout << "Error occured: " << e.what() << std::endl;
+	}
+	std::cout << "--- Now we will try to set people to work! ---" << std::endl;
+	office.setIntern(&intern);
+	office.setSigner(&signer);
+	office.setExecutor(&executor);
+	try
+	{
+		office.doBureaucracy(form, "Some guy");
+	}
+	catch (OfficeBlock::OfficeNotFilledException & e)
+	{
+		std::cout << "Error occured: " << e.what() << std::endl;
 	}
 }
