@@ -41,7 +41,7 @@ void					CentralBureaucracy::queueUp(std::string const & str)
 
 void					CentralBureaucracy::doBureaucracy(void) const
 {
-	std::srand(std::time(nullptr));
+	std::srand(std::time(NULL));
 	for (int i = 0; i < this->_officeBlocksSize; i++)
 	{
 		std::string		formType[] = {

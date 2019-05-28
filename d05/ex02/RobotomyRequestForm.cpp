@@ -24,7 +24,7 @@ void					RobotomyRequestForm::setTarget(std::string const & target) { this->_tar
 //
 void					RobotomyRequestForm::action(void) const
 {
-	std::srand(std::time(nullptr)); // for true rand()
+	std::srand(std::time(NULL));
 	std::cout << "*** Drilling noise *** (I HAVE NO IDEA HOW IT SOUNDS IN VERBAL FORM)" << std::endl;
 
 	if (rand() % 2)
