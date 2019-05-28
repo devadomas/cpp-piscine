@@ -1,5 +1,11 @@
 #include "Intern.hpp"
 
+Intern::Intern(void) {}
+Intern::Intern(Intern const &src) { *this = src; }
+Intern::~Intern(void) {}
+
+Intern &		Intern::operator=(Intern const &) { return *this; }
+
 Form *			Intern::makeRobotomyRequestForm(std::string const target) const
 {
 	return new RobotomyRequestForm(target);
