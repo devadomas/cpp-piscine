@@ -17,7 +17,7 @@ public:
 	void			setSigner(Bureaucrat *);
 	void			setExecutor(Bureaucrat *);
 
-	void			doBureaucracy(Form const &, std::string const &);
+	void			doBureaucracy(std::string, std::string const);
 
 	class OfficeNotFilledException : public std::exception
 	{

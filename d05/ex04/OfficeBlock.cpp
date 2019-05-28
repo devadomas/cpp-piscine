@@ -1,3 +1,4 @@
+#include <string>
 #include "OfficeBlock.hpp"
 
 OfficeBlock::OfficeBlock(OfficeBlock const & src) { *this = src; } // private
@@ -21,11 +22,20 @@ void				OfficeBlock::setIntern(Intern * intern) { this->_intern = intern; }
 void				OfficeBlock::setSigner(Bureaucrat * signer) { this->_signer = signer; }
 void				OfficeBlock::setExecutor(Bureaucrat * executor) { this->_executor = executor; }
 
-void				OfficeBlock::doBureaucracy(Form const &/* form*/, std::string const &/* target*/)
+void				OfficeBlock::doBureaucracy(std::string formName, std::string const target)
 {
+	Form		*form;
+
 	if (!this->_intern || !this->_signer || !this->_executor)
 		throw OfficeBlock::OfficeNotFilledException();
-	
+	if (!(form = this->_intern->makeForm(formName, target)))
+	{
+		std::cerr << "Error while allocating form" << std::endl;
+		return ;
+	}
+	this->_signer->signForm(*form);
+	this->_executor ->executeForm(*form);
+	delete form;
 }
 
 // exceptions

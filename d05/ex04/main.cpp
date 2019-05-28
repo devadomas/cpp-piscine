@@ -13,23 +13,14 @@ int			main(void)
 	Bureaucrat					signer("Signer", 1);
 	Bureaucrat					executor("Executor", 1);
 	OfficeBlock					office;
-	PresidentialPardonForm		form("haha");
 
-	try
-	{
-		office.doBureaucracy(form, "Some guy");
-	}
-	catch (OfficeBlock::OfficeNotFilledException & e)
-	{
-		std::cout << "Error occured: " << e.what() << std::endl;
-	}
 	std::cout << "--- Now we will try to set people to work! ---" << std::endl;
 	office.setIntern(&intern);
 	office.setSigner(&signer);
 	office.setExecutor(&executor);
 	try
 	{
-		office.doBureaucracy(form, "Some guy");
+		office.doBureaucracy("robotomy request", "Some guy");
 	}
 	catch (OfficeBlock::OfficeNotFilledException & e)
 	{
