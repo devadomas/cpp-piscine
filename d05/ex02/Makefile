@@ -6,7 +6,7 @@ SRCS		=	PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm
 OBJS		=	$(SRCS:.cpp=.o)
 
 CC 			=	clang++
-CFLAGS		= 	-Wall -Wextra -Werror -std=c++98
+CFLAGS		= 	-Wall -Wextra -Werror -std=c++98 -pedantic-errors
 OCFLAGS		=	-Wall -Wextra -Werror
 
 all:	 		$(NAME)
