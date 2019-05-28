@@ -2,7 +2,7 @@
 
 NAME 		= 	bureaucrat
 
-SRCS		=	OfficeBlock.cpp Intern.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Form.cpp Bureaucrat.cpp main.cpp
+SRCS		=	CentralBureaucracy.cpp OfficeBlock.cpp Intern.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Form.cpp Bureaucrat.cpp main.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 CC 			=	clang++
