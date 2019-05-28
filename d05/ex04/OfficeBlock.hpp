@@ -11,13 +11,13 @@ class OfficeBlock
 public:
 	OfficeBlock(void);
 	OfficeBlock(Intern *, Bureaucrat *, Bureaucrat *);
-	~OfficeBlock(void);
+	virtual ~OfficeBlock(void);
 
 	void			setIntern(Intern *);
 	void			setSigner(Bureaucrat *);
 	void			setExecutor(Bureaucrat *);
 
-	void			doBureaucracy(std::string, std::string const);
+	void			doBureaucracy(std::string, std::string const) const;
 
 	class OfficeNotFilledException : public std::exception
 	{

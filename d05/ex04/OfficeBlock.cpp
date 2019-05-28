@@ -22,7 +22,7 @@ void				OfficeBlock::setIntern(Intern * intern) { this->_intern = intern; }
 void				OfficeBlock::setSigner(Bureaucrat * signer) { this->_signer = signer; }
 void				OfficeBlock::setExecutor(Bureaucrat * executor) { this->_executor = executor; }
 
-void				OfficeBlock::doBureaucracy(std::string formName, std::string const target)
+void				OfficeBlock::doBureaucracy(std::string formName, std::string const target) const
 {
 	Form		*form;
 
