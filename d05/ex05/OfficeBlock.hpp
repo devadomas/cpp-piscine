@@ -11,13 +11,14 @@ class OfficeBlock
 public:
 	OfficeBlock(void);
 	OfficeBlock(Intern *, Bureaucrat *, Bureaucrat *);
+	OfficeBlock &	operator=(OfficeBlock const &);
 	~OfficeBlock(void);
 
 	void			setIntern(Intern *);
 	void			setSigner(Bureaucrat *);
 	void			setExecutor(Bureaucrat *);
 
-	void			doBureaucracy(std::string, std::string const);
+	void			doBureaucracy(std::string, std::string const) const;
 
 	class OfficeNotFilledException : public std::exception
 	{
@@ -35,7 +36,6 @@ private:
 	Bureaucrat *	_executor;
 
 	OfficeBlock(OfficeBlock const &);
-	OfficeBlock &	operator=(OfficeBlock const &);
 
 };
 

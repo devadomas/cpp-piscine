@@ -2,7 +2,16 @@
 #include "OfficeBlock.hpp"
 
 OfficeBlock::OfficeBlock(OfficeBlock const & src) { *this = src; } // private
-OfficeBlock &		OfficeBlock::operator=(OfficeBlock const &) { return *this; } // private
+OfficeBlock &		OfficeBlock::operator=(OfficeBlock const &src)
+{
+	if (this != &src)
+	{
+		this->_intern = src._intern;
+		this->_signer = src._signer;
+		this->_executor = src._executor;
+	}
+	return *this;
+}
 
 OfficeBlock::OfficeBlock(void)
 {
@@ -22,7 +31,7 @@ void				OfficeBlock::setIntern(Intern * intern) { this->_intern = intern; }
 void				OfficeBlock::setSigner(Bureaucrat * signer) { this->_signer = signer; }
 void				OfficeBlock::setExecutor(Bureaucrat * executor) { this->_executor = executor; }
 
-void				OfficeBlock::doBureaucracy(std::string formName, std::string const target)
+void				OfficeBlock::doBureaucracy(std::string formName, std::string const target) const
 {
 	Form		*form;
 
