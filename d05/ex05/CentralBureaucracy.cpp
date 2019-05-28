@@ -1,7 +1,7 @@
 #include "CentralBureaucracy.hpp"
 
 CentralBureaucracy::CentralBureaucracy(void): _officeBlocksSize(0), _targetSize(0) { }
-CentralBureaucracy::~CentralBureaucracy(void) { }
+CentralBureaucracy::~CentralBureaucracy(void) { this->cleanOffices(); }
 
 // private
 CentralBureaucracy::CentralBureaucracy(CentralBureaucracy const &src) { *this = src; }
@@ -55,6 +55,15 @@ void					CentralBureaucracy::doBureaucracy(void) const
 			std::cout << "office is about to do " << form << " type!" << std::endl;
 			this->_officeBlocks[i].doBureaucracy(form, this->_targetQueue[j]);
 		}
+	}
+}
+
+void					CentralBureaucracy::cleanOffices(void)
+{
+	std::cout << "CentralBureaucracy: cleaning offices. Everyone is fired now." << std::endl;
+	for (int i = 0; i < this->_officeBlocksSize; i++)
+	{
+		delete this->_officeBlocks[i].getExecutor();
 	}
 }
 

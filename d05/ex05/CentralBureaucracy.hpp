@@ -18,6 +18,8 @@ public:
 	void		doBureaucracy(void) const;
 
 	//
+	void		cleanOffices(void);
+	//
 	class OfficesFullException : public std::exception
 	{
 		public:
