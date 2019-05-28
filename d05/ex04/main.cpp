@@ -20,10 +20,15 @@ int			main(void)
 	office.setExecutor(&executor);
 	try
 	{
-		office.doBureaucracy("robotomy request", "Some guy");
+		office.doBureaucracy("robotomy reques1t", "Some guy");
 	}
 	catch (OfficeBlock::OfficeNotFilledException & e)
 	{
 		std::cout << "Error occured: " << e.what() << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		/* oh god, unknown error, what to do ?! */
+		std::cout << "Exception cought: " << e.what() << std::endl;
 	}
 }
