@@ -47,6 +47,9 @@ void				OfficeBlock::doBureaucracy(std::string formName, std::string const targe
 	delete form;
 }
 
+Bureaucrat *		OfficeBlock::getSigner(void) const { return this->_signer; }
+Bureaucrat *		OfficeBlock::getExecutor(void) const { return this->_executor; }
+
 // exceptions
 
 OfficeBlock::OfficeNotFilledException::OfficeNotFilledException(void) { }

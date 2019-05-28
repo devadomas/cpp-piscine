@@ -20,6 +20,9 @@ public:
 
 	void			doBureaucracy(std::string, std::string const) const;
 
+	Bureaucrat *	getSigner(void) const;
+	Bureaucrat *	getExecutor(void) const;
+
 	class OfficeNotFilledException : public std::exception
 	{
 		public:
