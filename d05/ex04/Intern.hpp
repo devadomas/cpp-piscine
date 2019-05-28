@@ -10,6 +10,12 @@
 class Intern
 {
 public:
+	Intern(void);
+	Intern(Intern const &);
+	virtual ~Intern(void);
+
+	Intern &	operator=(Intern const &);
+
 	Form *		makeForm(std::string const &, std::string const) const;
 	Form *		makeRobotomyRequestForm(std::string const) const;
 	Form *		makePresidentialPardonForm(std::string const) const;
