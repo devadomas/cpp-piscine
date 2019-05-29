@@ -25,3 +25,13 @@ void		Span::addNumber(int nbr)
 		throw std::runtime_error("span is already full");
 	this->_v.push_back(nbr);
 }
+
+int			Span::longestSpan(void) const
+{
+
+}
+
+int			Span::shortestSpan(void) const
+{
+	
+}

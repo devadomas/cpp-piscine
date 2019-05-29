@@ -13,7 +13,8 @@ public:
 
 	//
 	void					addNumber(int nbr);
-
+	int						longestSpan(void) const;
+	int						shortestSpan(void) const;
 
 private:
 	std::vector<int>		_v;
