@@ -11,7 +11,7 @@ long		easyfind(T container, int number)
 	typename T::iterator iEnd = container.end();
 	if ((i = find(iBegin, iEnd, number)) != iEnd)
 		return std::distance(iBegin, i);
-	throw std::runtime_error("Cannot find your number");
+	throw std::runtime_error("cannot find your number");
 }
 
 #endif
