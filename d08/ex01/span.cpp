@@ -28,10 +28,24 @@ void		Span::addNumber(int nbr)
 
 int			Span::longestSpan(void) const
 {
-
+	if (this->_v.size() < 2)
+		throw std::runtime_error("there is not enough items to find span");
+		
+	int min = *(std::min_element(this->_v.begin(), this->_v.end()));
+	int max = *(std::max_element(this->_v.begin(), this->_v.end()));
+	return static_cast<int>(max - min);
 }
 
 int			Span::shortestSpan(void) const
 {
-	
+	if (this->_v.size() < 2)
+		throw std::runtime_error("there is not enough items to find span");
+
+	std::vector<int>		cpy(this->_v);
+	int						arg1, arg2;
+
+	std::sort(cpy.begin(), cpy.end());
+	arg1 = cpy[0];
+	arg2 = cpy[1];
+	return static_cast<int>(arg2 - arg1);
 }

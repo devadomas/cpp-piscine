@@ -16,4 +16,15 @@ int		main(void)
 	{
 		std::cerr << "Cought error while adding numbers: " << e.what() << std::endl;
 	}
+
+	Span newSp = Span(5);
+
+	newSp.addNumber(5);
+	newSp.addNumber(3);
+	newSp.addNumber(17);
+	newSp.addNumber(9);
+	newSp.addNumber(11);
+
+	std::cout << newSp.shortestSpan() << std::endl;
+	std::cout << newSp.longestSpan() << std::endl;
 }
