@@ -1,9 +1,10 @@
 #ifndef SOLVER_CLASS_HPP
 #define SOLVER_CLASS_HPP
 
-#include <sstream>
+#include <vector>
 #include <string>
-#include "Vector.class.hpp"
+#include <sstream>
+
 #include "Fixed.class.hpp"
 
 class Solver
@@ -18,26 +19,35 @@ public:
 	void			tokenize(void);
 	bool			verify(void);
 	void			format(void);
-	Fixed			solve(void);
+	int				result(void) const;
+
+	int 			solve(void);
+	// Fixed 			solve(void);
+
+	void			printTokens(void) const;
+	void			printRPN(void) const;
+	void			printVector(std::vector<int>) const;
 
 	std::string		getInput(void) const;
-	Vector			getTokens(void) const;
-	Vector			getStack(void) const;
-	Vector			getRPN(void) const;
+	std::vector<std::string>	getTokens(void) const;
+	std::vector<std::string>	getStack(void) const;
+	std::vector<std::string>	getRPN(void) const;
 
 private:
 	std::string		_input;
-	Vector			_tokens;
-	Vector			_stack;
-	Vector			_rpn;
+
+	std::vector<std::string>		_rpnV;
+	std::vector<int> 		_stack;
+	std::vector<std::string>		_stackV;
+	std::vector<std::string>		_tokensV;
 
 	static bool		isNumber(const std::string & str);
 	static float	toFloat(const std::string & str);
+	static std::string	formatToken(const std::string & str);
+	static std::string	applyPadding(const std::string & str);
 
 protected:
 	Solver(void);
 };
-
-std::ostream &		operator<<(std::ostream &, Solver const & src);
 
 #endif
