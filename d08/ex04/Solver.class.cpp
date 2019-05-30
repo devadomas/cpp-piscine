@@ -277,7 +277,7 @@ std::string		Solver::applyPadding(const std::string & str)
 {
 	std::stringstream ss;
 
-	for (unsigned long i = 0; i < str.length(); i++) // BAD
+	for (unsigned long i = 0; i < str.length(); i++)
 	{
 		ss << str[i];
 		if ((str[i] == '(' && isdigit(str[i + 1])) ||
