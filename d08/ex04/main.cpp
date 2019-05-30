@@ -21,8 +21,17 @@ int		main(int argc, char const **argv)
 	rpn.printTokens();
 	rpn.format();
 	rpn.printRPN();
-	rpn.solve();
 
+	try
+	{
+		rpn.solve();
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << "Cought exception: " << e.what() << std::endl;
+		return 0;
+	}
+	rpn.printCommands();
 	std::cout << "Result : " << rpn.result() << std::endl;
 	return 0;
 }

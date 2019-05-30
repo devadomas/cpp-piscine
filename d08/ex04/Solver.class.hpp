@@ -20,13 +20,14 @@ public:
 	bool			verify(void);
 	void			format(void);
 	int				result(void) const;
+	void			printCommands(void) const;
 
-	int 			solve(void);
+	void			solve(void);
 	// Fixed 			solve(void);
 
 	void			printTokens(void) const;
 	void			printRPN(void) const;
-	void			printVector(std::vector<int>) const;
+	std::string		printVector(std::vector<int>) const;
 
 	std::string		getInput(void) const;
 	std::vector<std::string>	getTokens(void) const;
@@ -37,9 +38,10 @@ private:
 	std::string		_input;
 
 	std::vector<std::string>		_rpnV;
-	std::vector<int> 		_stack;
+	std::vector<int> 				_stack;
 	std::vector<std::string>		_stackV;
 	std::vector<std::string>		_tokensV;
+	std::vector<std::string>		_commander;
 
 	static bool		isNumber(const std::string & str);
 	static float	toFloat(const std::string & str);

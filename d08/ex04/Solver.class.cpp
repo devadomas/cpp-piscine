@@ -165,86 +165,59 @@ void			Solver::format(void)
 
 int				Solver::result(void) const { return this->_stack[0]; }
 
-int				Solver::solve(void)
+void			Solver::printCommands(void) const
+{
+	for (unsigned int i = 0; i < this->_commander.size(); i++)
+		std::cout << this->_commander[i] << std::endl;
+}
+
+void			Solver::solve(void)
 {
 	for (unsigned int i = 0; i < this->_rpnV.size(); ++i)
 	{
-		std::cout << "I " << Solver::formatToken(this->_rpnV[i]) << " | OP ";
+		std::stringstream		ss;
+
+		ss << "I " << Solver::formatToken(this->_rpnV[i]) << " | OP ";
 		if (Solver::isNumber(this->_rpnV[i]))
 		{
-			std::cout << "Push |";
+			ss << "Push |";
 			int nbr = std::stoi(this->_rpnV[i], NULL);
 			this->_stack.insert(this->_stack.begin(), nbr);
-			Solver::printVector(this->_stack);
+			ss << Solver::printVector(this->_stack);
 		}
 		else if (this->_rpnV[i] == "+")
 		{
-			std::cout << "Add |";
+			ss << "Add |";
 			this->_stack[1] += this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
-			Solver::printVector(this->_stack);
+			ss << Solver::printVector(this->_stack);
 		}
 		else if (this->_rpnV[i] == "-")
 		{
-			std::cout << "Substract |";
+			ss << "Substract |";
 			this->_stack[1] -= this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
-			Solver::printVector(this->_stack);
+			ss << Solver::printVector(this->_stack);
 		}
 		else if (this->_rpnV[i] == "*")
 		{
-			std::cout << "Multiply |";
+			ss << "Multiply |";
 			this->_stack[1] = this->_stack[1] * this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
-			Solver::printVector(this->_stack);
+			ss << Solver::printVector(this->_stack);
 		}
-		else if (this->_rpnV[i] == "/")
+		else if (this->_rpnV[i] == "/") // DIVISION BY ZERO NEEDED!
 		{
-			std::cout << "Division |";
+			ss << "Division |";
+			if (this->_stack[0] == 0)
+				throw std::runtime_error("division by 0");
 			this->_stack[1] = this->_stack[1] / this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
-			Solver::printVector(this->_stack);
+			ss << Solver::printVector(this->_stack);
 		}
+		this->_commander.push_back(ss.str());
 	}
-
-	return this->_stack[0];
 }
-
-/*Fixed			Solver::solve(void)
-{
-	std::reverse(this->_rpnV.begin(), this->_rpnV.end());
-	int	index = this->_rpnV.size() - 1;
-	while (this->_rpnV.size() != 1)
-	{
-		if (this->isNumber(this->_rpnV[index])
-			&& this->isNumber(this->_rpnV[index - 1])
-			&& !this->isNumber(this->_rpnV[index - 2]))
-		{
-			std::stringstream ss;
-			if (this->_rpnV[index - 2] == "+")
-				ss << Fixed(this->toFloat(this->_rpnV[index])) + Fixed(this->toFloat(this->_rpnV[index - 1]));
-			else if (this->_rpnV[index - 2] == "-")
-				ss << Fixed(this->toFloat(this->_rpnV[index])) - Fixed(this->toFloat(this->_rpnV[index - 1]));
-			else if (this->_rpnV[index - 2] == "*")
-				ss << Fixed(this->toFloat(this->_rpnV[index])) * Fixed(this->toFloat(this->_rpnV[index - 1]));
-			else if (this->_rpnV[index - 2] == "/" && Fixed(this->toFloat(this->_rpnV[index - 1])) == 0)
-			{
-				std::cout << "Divsion by 0. Output will not be accurate." << std::endl;
-				ss << Fixed(this->toFloat(this->_rpnV[index])) / Fixed(this->toFloat(this->_rpnV[index - 1]));
-			}
-			else if (this->_rpnV[index - 2] == "/")
-				ss << Fixed(this->toFloat(this->_rpnV[index])) / Fixed(this->toFloat(this->_rpnV[index - 1]));
-			this->_rpnV.erase(this->_rpnV.begin() + index);
-			this->_rpnV.erase(this->_rpnV.begin() + index - 1);
-			this->_rpnV.erase(this->_rpnV.begin() + index - 2);
-			this->_rpnV.insert(this->_rpnV.begin() + index - 2, ss.str());
-			index = this->_rpnV.size() - 1;
-		}
-		else
-			index--;
-	}
-	return Fixed(this->toFloat(this->_rpnV[0]));
-}*/
 
 // Utils
 bool			Solver::isNumber(const std::string & str)
@@ -297,14 +270,16 @@ void			Solver::printRPN(void) const
 	std::cout << std::endl;
 }
 
-void			Solver::printVector(std::vector<int> v) const
+std::string		Solver::printVector(std::vector<int> v) const
 {
+	std::stringstream		ss;
 	std::vector<int>		tokens(v);
 
-	std::cout << " ST";
+	ss << " ST";
 	for(unsigned long i = 0; i < tokens.size(); i++)
-		std::cout << " " << tokens[i];
-	std::cout << "]" << std::endl;
+		ss << " " << tokens[i];
+	ss << "]";
+	return ss.str();
 }
 
 std::string		Solver::applyPadding(const std::string & str)
