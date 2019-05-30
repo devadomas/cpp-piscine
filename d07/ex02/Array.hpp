@@ -7,7 +7,11 @@ template< typename T >
 class Array {
 public:
 	Array(void): _arr(NULL), _size(0) {};
-	Array(unsigned int n): _arr(new T[n]), _size(n) {};
+	Array(unsigned int n): _arr(new T[n]), _size(n)
+	{
+		for (unsigned int i = 0; i < n; i++)
+			this->_arr[i] = T();
+	}
 	Array(Array const &src)
 	{
 		this->_size = src.size();
