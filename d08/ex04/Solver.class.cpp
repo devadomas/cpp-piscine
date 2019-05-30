@@ -33,7 +33,6 @@ void			Solver::tokenize(void)
 	std::string			delim(" ");
 	std::stringstream 	stringStream(Solver::applyPadding(this->_input));
 
-	// std::cout << "Formed string: " << stringStream.str() << std::endl;
 	while(std::getline(stringStream, delim))
 	{
 		std::size_t prev = 0, pos;
