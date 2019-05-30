@@ -32,6 +32,7 @@ void			Solver::tokenize(void)
 	std::string			delim(" ");
 	std::stringstream 	stringStream(Solver::applyPadding(this->_input));
 
+	// std::cout << "Formed string: " << stringStream.str() << std::endl;
 	while(std::getline(stringStream, delim))
 	{
 		std::size_t prev = 0, pos;
@@ -173,7 +174,7 @@ void			Solver::printCommands(void) const
 
 void			Solver::solve(void)
 {
-	for (unsigned int i = 0; i < this->_rpnV.size(); ++i)
+	for (unsigned int i = 0; i < this->_rpnV.size(); ++i) // think about protection
 	{
 		std::stringstream		ss;
 
@@ -276,10 +277,12 @@ std::string		Solver::applyPadding(const std::string & str)
 {
 	std::stringstream ss;
 
-	for (unsigned long i = 0; i < str.length(); i++)
+	for (unsigned long i = 0; i < str.length(); i++) // BAD
 	{
 		ss << str[i];
-		if (str[i] != ' ')
+		if ((str[i] == '(' && isdigit(str[i + 1])) ||
+			(isdigit(str[i]) && !isdigit(str[i + 1])) ||
+			(!isdigit(str[i]) && !isdigit(str[i + 1])))
 			ss << " ";
 	}
 	return ss.str();
