@@ -25,6 +25,11 @@ int		main(int argc, char const **argv)
 	{
 		rpn.solve();
 	}
+	catch (std::out_of_range & e)
+	{
+		std::cerr << "Error! Stay within INT limits!" << std::endl;
+		return 0;
+	}
 	catch (std::exception & e)
 	{
 		std::cerr << "Cought exception: " << e.what() << std::endl;
