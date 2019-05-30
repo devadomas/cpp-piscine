@@ -2,13 +2,14 @@
 
 Solver::~Solver(void) { }
 Solver::Solver(void) { } // protected construstor
-Solver::Solver(std::string const & input): _input(input) { }
+Solver::Solver(std::string const & input): _numberSize(0), _input(input) { }
 Solver::Solver(Solver const & src) { *this = src; }
 
 Solver &		Solver::operator=(Solver const & src)
 {
 	if (this != &src)
 	{
+		this->_numberSize = src._numberSize;
 		this->_input = src._input;
 		this->_stack = src._stack;
 		this->_rpnV = src._rpnV;
@@ -47,7 +48,7 @@ void			Solver::tokenize(void)
 	}
 }
 
-bool			Solver::verify(void)
+void			Solver::verify(void)
 {
 	int		numberOfParentheses(0);
 	bool	lastIsOpeningParenthese(false);
@@ -68,7 +69,7 @@ bool			Solver::verify(void)
 				numberOfParentheses++;
 			}
 			else
-				return false;
+				throw InvalidInputException();
 		}
 		else if (this->isNumber(value))
 		{
@@ -80,7 +81,7 @@ bool			Solver::verify(void)
 				lastIsNumeric = true;
 			}
 			else
-				return false;
+				throw InvalidInputException();
 		}
 		else if (value == "(")
 		{
@@ -93,7 +94,7 @@ bool			Solver::verify(void)
 				lastIsNumeric = false;
 			}
 			else
-				return false;
+				throw InvalidInputException();
 		}
 		else if (value == ")")
 		{
@@ -106,7 +107,7 @@ bool			Solver::verify(void)
 				lastIsNumeric = false;
 			}
 			else
-				return false;
+				throw InvalidInputException();
 		}
 		else if (value == "+" || value == "-" || value == "*" || value == "/")
 		{
@@ -118,15 +119,14 @@ bool			Solver::verify(void)
 				lastIsNumeric = false;
 			}
 			else
-				return false;
+				throw InvalidInputException();
 		}
 		else
-			return false;
+			throw InvalidInputException();
 	}
 
 	if (numberOfParentheses != 0 || lastIsOperator || lastIsOpeningParenthese)
-		return false;
-	return true;
+		throw InvalidInputException();
 }
 void			Solver::format(void)
 {
@@ -174,41 +174,41 @@ void			Solver::printCommands(void) const
 
 void			Solver::solve(void)
 {
-	for (unsigned int i = 0; i < this->_rpnV.size(); ++i) // think about protection
+	for (unsigned int i = 0; i < this->_rpnV.size(); ++i)
 	{
 		std::stringstream		ss;
 
 		ss << "I " << Solver::formatToken(this->_rpnV[i]) << " | OP ";
 		if (Solver::isNumber(this->_rpnV[i]))
 		{
-			ss << "Push |";
+			ss << std::left << std::setw(9) << "Push" << " |";
 			this->_stack.insert(this->_stack.begin(), std::stoi(this->_rpnV[i], NULL));
 			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "+")
 		{
-			ss << "Add |";
+			ss << std::left << std::setw(9) << "Add" << " |";
 			this->_stack[1] += this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
 			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "-")
 		{
-			ss << "Substract |";
+			ss << std::left << std::setw(9) << "Substract" << " |";
 			this->_stack[1] -= this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
 			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "*")
 		{
-			ss << "Multiply |";
+			ss << std::left << std::setw(9) << "Multiply" << " |";
 			this->_stack[1] = this->_stack[1] * this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
 			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "/")
 		{
-			ss << "Division |";
+			ss << std::left << std::setw(9) << "Division" << " |";
 			if (this->_stack[0] == 0)
 				throw std::runtime_error("division by 0");
 			this->_stack[1] = this->_stack[1] / this->_stack[0];
@@ -287,3 +287,9 @@ std::string		Solver::applyPadding(const std::string & str)
 	}
 	return ss.str();
 }
+
+Solver::InvalidInputException::InvalidInputException(void) { }
+Solver::InvalidInputException::~InvalidInputException(void) throw() { }
+Solver::InvalidInputException::InvalidInputException(InvalidInputException const &src) { *this = src; }
+Solver::InvalidInputException & Solver::InvalidInputException::operator=(Solver::InvalidInputException const &) { return *this; }
+const char * Solver::InvalidInputException::what(void) const throw() { return ("Invalid input."); }

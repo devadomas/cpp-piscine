@@ -4,8 +4,8 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <iomanip>
 #include <iostream>
-
 
 class Solver
 {
@@ -17,15 +17,15 @@ public:
 	Solver&	operator=(Solver const &);
 
 	void			tokenize(void);
-	bool			verify(void);
+	void			verify(void);
 	void			format(void);
 	int				result(void) const;
-	void			printCommands(void) const;
 
 	void			solve(void);
 
 	void			printTokens(void) const;
 	void			printRPN(void) const;
+	void			printCommands(void) const;
 	std::string		addStack(std::vector<int>) const;
 
 	std::string					getInput(void) const;
@@ -33,7 +33,17 @@ public:
 	std::vector<std::string>	getStack(void) const;
 	std::vector<std::string>	getRPN(void) const;
 
+	class InvalidInputException : public std::exception
+	{
+		public:
+			InvalidInputException(void);
+			InvalidInputException(InvalidInputException const &);
+			virtual ~InvalidInputException(void) throw();
+			InvalidInputException &		operator=(InvalidInputException const &);
+			virtual const char *		what(void) const throw();
+	};
 private:
+	int								_numberSize;
 	std::string						_input;
 	std::vector<int> 				_stack;
 	std::vector<std::string>		_rpnV;
