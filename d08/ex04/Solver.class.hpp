@@ -7,6 +7,9 @@
 #include <iomanip>
 #include <iostream>
 
+#define DEFINE_FIRST_COLLUM 10
+#define DEFINE_SECOND_COLLUM 8
+
 class Solver
 {
 public:

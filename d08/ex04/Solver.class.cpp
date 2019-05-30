@@ -178,37 +178,37 @@ void			Solver::solve(void)
 	{
 		std::stringstream		ss;
 
-		ss << "I " << Solver::formatToken(this->_rpnV[i]) << " | OP ";
+		ss << "I " << std::left << std::setw(DEFINE_FIRST_COLLUM) << Solver::formatToken(this->_rpnV[i]) << " | OP ";
 		if (Solver::isNumber(this->_rpnV[i]))
 		{
-			ss << std::left << std::setw(9) << "Push" << " |";
+			ss << std::left << std::setw(DEFINE_SECOND_COLLUM) << "Push" << " |";
 			this->_stack.insert(this->_stack.begin(), std::stoi(this->_rpnV[i], NULL));
 			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "+")
 		{
-			ss << std::left << std::setw(9) << "Add" << " |";
+			ss << std::left << std::setw(DEFINE_SECOND_COLLUM) << "Add" << " |";
 			this->_stack[1] += this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
 			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "-")
 		{
-			ss << std::left << std::setw(9) << "Substract" << " |";
+			ss << std::left << std::setw(DEFINE_SECOND_COLLUM) << "Substract" << " |";
 			this->_stack[1] -= this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
 			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "*")
 		{
-			ss << std::left << std::setw(9) << "Multiply" << " |";
+			ss << std::left << std::setw(DEFINE_SECOND_COLLUM) << "Multiply" << " |";
 			this->_stack[1] = this->_stack[1] * this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
 			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "/")
 		{
-			ss << std::left << std::setw(9) << "Division" << " |";
+			ss << std::left << std::setw(DEFINE_SECOND_COLLUM) << "Division" << " |";
 			if (this->_stack[0] == 0)
 				throw std::runtime_error("division by 0");
 			this->_stack[1] = this->_stack[1] / this->_stack[0];
