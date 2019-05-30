@@ -1,7 +1,7 @@
 #include "Solver.class.hpp"
 
 Solver::~Solver(void) { }
-Solver::Solver(void) { } // protected contrustor
+Solver::Solver(void) { } // protected construstor
 Solver::Solver(std::string const & input): _input(input) { }
 Solver::Solver(Solver const & src) { *this = src; }
 
@@ -10,18 +10,20 @@ Solver &		Solver::operator=(Solver const & src)
 	if (this != &src)
 	{
 		this->_input = src._input;
-		this->_tokensV = src._tokensV;
-		this->_stackV = src._stackV;
-		this->_rpnV = src._rpnV;
 		this->_stack = src._stack;
+		this->_rpnV = src._rpnV;
+		this->_stackV = src._stackV;
+		this->_tokensV = src._tokensV;
+		this->_commander = src._commander;
 	}
 	return *this;
 }
 
-std::string		Solver::getInput(void) const { return this->_input; }
+std::string						Solver::getInput(void) const { return this->_input; }
 std::vector<std::string>		Solver::getTokens(void) const { return this->_tokensV; }
 std::vector<std::string>		Solver::getStack(void) const { return this->_stackV; }
 std::vector<std::string>		Solver::getRPN(void) const { return this->_rpnV; }
+int								Solver::result(void) const { return this->_stack[0]; }
 
 
 void			Solver::tokenize(void)
@@ -163,8 +165,6 @@ void			Solver::format(void)
 	}
 }
 
-int				Solver::result(void) const { return this->_stack[0]; }
-
 void			Solver::printCommands(void) const
 {
 	for (unsigned int i = 0; i < this->_commander.size(); i++)
@@ -181,8 +181,7 @@ void			Solver::solve(void)
 		if (Solver::isNumber(this->_rpnV[i]))
 		{
 			ss << "Push |";
-			int nbr = std::stoi(this->_rpnV[i], NULL);
-			this->_stack.insert(this->_stack.begin(), nbr);
+			this->_stack.insert(this->_stack.begin(), std::stoi(this->_rpnV[i], NULL));
 			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "+")
@@ -206,7 +205,7 @@ void			Solver::solve(void)
 			this->_stack.erase(this->_stack.begin());
 			ss << Solver::addStack(this->_stack);
 		}
-		else if (this->_rpnV[i] == "/") // DIVISION BY ZERO NEEDED!
+		else if (this->_rpnV[i] == "/")
 		{
 			ss << "Division |";
 			if (this->_stack[0] == 0)
@@ -227,15 +226,6 @@ bool			Solver::isNumber(const std::string & str)
 
     iss >> std::noskipws >> f;
     return iss.eof() && !iss.fail();
-}
-
-float			Solver::toFloat(const std::string & str)
-{
-	float f;
-	std::istringstream iss(str);
-
-    iss >> std::noskipws >> f;
-	return f;
 }
 
 // For output formatting of Token vector

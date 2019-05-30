@@ -42,7 +42,6 @@ private:
 	std::vector<std::string>		_commander;
 
 	static bool						isNumber(const std::string &);
-	static float					toFloat(const std::string &);
 	static std::string				formatToken(const std::string &);
 	static std::string				applyPadding(const std::string &);
 
