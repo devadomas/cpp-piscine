@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Fixed.class.hpp"
 #include "Solver.class.hpp"
 
 int		main(int argc, char const **argv)

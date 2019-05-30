@@ -183,28 +183,28 @@ void			Solver::solve(void)
 			ss << "Push |";
 			int nbr = std::stoi(this->_rpnV[i], NULL);
 			this->_stack.insert(this->_stack.begin(), nbr);
-			ss << Solver::printVector(this->_stack);
+			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "+")
 		{
 			ss << "Add |";
 			this->_stack[1] += this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
-			ss << Solver::printVector(this->_stack);
+			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "-")
 		{
 			ss << "Substract |";
 			this->_stack[1] -= this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
-			ss << Solver::printVector(this->_stack);
+			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "*")
 		{
 			ss << "Multiply |";
 			this->_stack[1] = this->_stack[1] * this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
-			ss << Solver::printVector(this->_stack);
+			ss << Solver::addStack(this->_stack);
 		}
 		else if (this->_rpnV[i] == "/") // DIVISION BY ZERO NEEDED!
 		{
@@ -213,7 +213,7 @@ void			Solver::solve(void)
 				throw std::runtime_error("division by 0");
 			this->_stack[1] = this->_stack[1] / this->_stack[0];
 			this->_stack.erase(this->_stack.begin());
-			ss << Solver::printVector(this->_stack);
+			ss << Solver::addStack(this->_stack);
 		}
 		this->_commander.push_back(ss.str());
 	}
@@ -270,7 +270,7 @@ void			Solver::printRPN(void) const
 	std::cout << std::endl;
 }
 
-std::string		Solver::printVector(std::vector<int> v) const
+std::string		Solver::addStack(std::vector<int> v) const
 {
 	std::stringstream		ss;
 	std::vector<int>		tokens(v);

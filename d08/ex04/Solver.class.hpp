@@ -4,8 +4,8 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <iostream>
 
-#include "Fixed.class.hpp"
 
 class Solver
 {
@@ -23,11 +23,10 @@ public:
 	void			printCommands(void) const;
 
 	void			solve(void);
-	// Fixed 			solve(void);
 
 	void			printTokens(void) const;
 	void			printRPN(void) const;
-	std::string		printVector(std::vector<int>) const;
+	std::string		addStack(std::vector<int>) const;
 
 	std::string		getInput(void) const;
 	std::vector<std::string>	getTokens(void) const;

@@ -2,7 +2,7 @@
 
 NAME 		= 	ex04
 
-SRCS		=	Solver.class.cpp Fixed.class.cpp main.cpp
+SRCS		=	Solver.class.cpp main.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 CC 			=	clang++
