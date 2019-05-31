@@ -3,36 +3,26 @@
 
 #include "project.hpp"
 
-class AInstructions {
-
+class AInstructions
+{
 public:
 
 	typedef	std::vector<char>::iterator				memory_iterator;
 	typedef std::vector<AInstructions*>::iterator	instructions_iterator;
 
-	// Constructors & destructor
-	AInstructions( AInstructions const & );
-	virtual ~AInstructions( void );
+	AInstructions(AInstructions const &);
+	virtual ~AInstructions(void);
+	AInstructions&	operator=(AInstructions const &);
 
-	// Operator overrride
-	AInstructions&	operator=( AInstructions const & );
-
-	// Getter
-	char	getType( void ) const;
-
-	// Member function
-	virtual void	execute( memory_iterator&, memory_iterator&, memory_iterator&, instructions_iterator& ) = 0;
+	char			getType(void) const;
+	virtual void	execute(memory_iterator&, memory_iterator&, memory_iterator&, instructions_iterator&) = 0;
 
 protected:
-
-	// Constructors & destructor
-	AInstructions( void );
-	AInstructions( char );
+	AInstructions(void);
+	AInstructions(char);
 
 private:
-
-	// Member attributes
-	char	_type;
+	char			_type;
 
 };
 

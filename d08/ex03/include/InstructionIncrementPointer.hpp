@@ -3,20 +3,15 @@
 
 #include "project.hpp"
 
-class InstructionIncrementPointer : public AInstructions {
-
+class InstructionIncrementPointer : public AInstructions
+{
 public:
+	InstructionIncrementPointer(void);
+	InstructionIncrementPointer(InstructionIncrementPointer const &);
+	~InstructionIncrementPointer(void);
+	InstructionIncrementPointer	&operator=(InstructionIncrementPointer const &);
 
-	// Constructors & destructors
-	InstructionIncrementPointer( void );
-	InstructionIncrementPointer( InstructionIncrementPointer const & );
-	~InstructionIncrementPointer( void );
-
-	// Operator override
-	InstructionIncrementPointer	&operator=( InstructionIncrementPointer const & );
-
-	// Member functions
-	virtual void execute( memory_iterator&, memory_iterator&, memory_iterator&, instructions_iterator& );
+	virtual void 	execute(memory_iterator&, memory_iterator&, memory_iterator&, instructions_iterator&);
 };
 
 #endif

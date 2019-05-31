@@ -3,20 +3,15 @@
 
 #include "project.hpp"
 
-class InstructionJumpForward : public AInstructions {
-
+class InstructionJumpForward : public AInstructions
+{
 public:
+	InstructionJumpForward(void);
+	InstructionJumpForward(InstructionJumpForward const &);
+	~InstructionJumpForward(void);
+	InstructionJumpForward	&operator=(InstructionJumpForward const &);
 
-	// Constructors & destructors
-	InstructionJumpForward( void );
-	InstructionJumpForward( InstructionJumpForward const & );
-	~InstructionJumpForward( void );
-
-	// Operator override
-	InstructionJumpForward	&operator=( InstructionJumpForward const & );
-
-	// Member functions
-	virtual void execute( memory_iterator&, memory_iterator&, memory_iterator&, instructions_iterator& );
+	virtual void 	execute(memory_iterator&, memory_iterator&, memory_iterator&, instructions_iterator&);
 };
 
 #endif

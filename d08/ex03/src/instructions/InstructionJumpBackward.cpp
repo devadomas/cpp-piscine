@@ -1,15 +1,11 @@
 #include "project.hpp"
 
-// Constructors & destructors
-InstructionJumpBackward::InstructionJumpBackward( void ) : AInstructions(INSTRUCTION_JUMP_BACKWARD) {}
-InstructionJumpBackward::InstructionJumpBackward( InstructionJumpBackward const & src ) { *this = src; }
-InstructionJumpBackward::~InstructionJumpBackward( void ) {}
+InstructionJumpBackward::InstructionJumpBackward(void) : AInstructions(INSTRUCTION_JUMP_BACKWARD) {}
+InstructionJumpBackward::InstructionJumpBackward(InstructionJumpBackward const & src) { *this = src; }
+InstructionJumpBackward::~InstructionJumpBackward(void) {}
+InstructionJumpBackward&	InstructionJumpBackward::operator=(InstructionJumpBackward const &) { return *this; }
 
-// Operator override
-InstructionJumpBackward&	InstructionJumpBackward::operator=( InstructionJumpBackward const & ) { return *this; }
-
-// Member functions
-void	InstructionJumpBackward::execute( MindOpen::memory_iterator&, MindOpen::memory_iterator&, MindOpen::memory_iterator&, MindOpen::instructions_iterator& iit)
+void	InstructionJumpBackward::execute(MindOpen::memory_iterator&, MindOpen::memory_iterator&, MindOpen::memory_iterator&, MindOpen::instructions_iterator& iit)
 {
 	int bracesCount = 0;
 

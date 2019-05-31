@@ -3,20 +3,15 @@
 
 #include "project.hpp"
 
-class InstructionInput : public AInstructions {
-
+class InstructionInput : public AInstructions
+{
 public:
+	InstructionInput(void);
+	InstructionInput(InstructionInput const &);
+	~InstructionInput(void);
+	InstructionInput	&operator=(InstructionInput const &);
 
-	// Constructors & destructors
-	InstructionInput( void );
-	InstructionInput( InstructionInput const & );
-	~InstructionInput( void );
-
-	// Operator override
-	InstructionInput	&operator=( InstructionInput const & );
-
-	// Member functions
-	virtual void execute( memory_iterator&, memory_iterator&, memory_iterator&, instructions_iterator& );
+	virtual void 	execute(memory_iterator&, memory_iterator&, memory_iterator&, instructions_iterator&);
 };
 
 #endif
