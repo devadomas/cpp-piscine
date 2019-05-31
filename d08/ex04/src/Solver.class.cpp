@@ -45,6 +45,8 @@ void			Solver::tokenize(void)
 		if (prev < delim.length())
 			this->_tokensV.push_back(delim.substr(prev, std::string::npos));
 	}
+	if (this->_tokensV.size() == 0)
+		throw InvalidInputException();
 }
 
 void			Solver::verify(void)
