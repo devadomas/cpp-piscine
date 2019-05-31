@@ -25,5 +25,18 @@ int			main(void)
 		++it;
 	}
 	std::stack<int> s(mstack);
+
+	std::cout << "Other tests" << std::endl;
+	MutantStack<int>	testStack;
+	std::cout << "Pushing 1" << std::endl;
+	testStack.push(1);
+	std::cout << "Pushing 2" << std::endl;
+	testStack.push(2);
+	std::cout << "Pushing 3" << std::endl;
+	testStack.push(3);
+	std::cout << "Pushing 4" << std::endl;
+	testStack.push(4);
+	std::cout << "Top of stack: " << testStack.top() << std::endl;
+	std::cout << "Stack size: " << testStack.size() << std::endl;
 	return 0;
 }
