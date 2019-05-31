@@ -3,7 +3,7 @@
 Span::Span(void) { }
 Span::~Span(void) { }
 
-Span::Span(unsigned int n): _maxSize(n) { }
+Span::Span(unsigned int n) { this->_v.reserve(n); }
 
 Span::Span(Span const & src) { *this = src; }
 
@@ -21,7 +21,7 @@ Span &		Span::operator=(Span const & src)
 
 void		Span::addNumber(int nbr)
 {
-	if(this->_v.size() == this->_maxSize)
+	if(this->_v.size() == this->_v.capacity())
 		throw std::runtime_error("span is already full");
 	this->_v.push_back(nbr);
 }
@@ -42,10 +42,7 @@ int			Span::shortestSpan(void) const
 		throw std::runtime_error("there is not enough items to find span");
 
 	std::vector<int>		cpy(this->_v);
-	int						arg1, arg2;
 
 	std::sort(cpy.begin(), cpy.end());
-	arg1 = cpy[0];
-	arg2 = cpy[1];
-	return static_cast<int>(abs(arg2 - arg1));
+	return static_cast<int>(abs(cpy[1] - cpy[0]));
 }

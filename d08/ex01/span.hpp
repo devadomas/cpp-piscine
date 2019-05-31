@@ -20,7 +20,7 @@ private:
 	std::vector<int>		_v;
 	unsigned int			_maxSize;
 
-	Span(void); //unused
+	Span(void);
 };
 
 #endif
