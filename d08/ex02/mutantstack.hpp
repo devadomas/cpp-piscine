@@ -5,8 +5,8 @@
 #include <iterator>
 
 template<typename T>
-class MutantStack : public std::stack<T> {
-
+class MutantStack : public std::stack<T>
+{
 public:
 
 	// Creates a type to use iterators on class
@@ -18,7 +18,8 @@ public:
 	virtual ~MutantStack( void ) {}
 
 	// Operators override
-	MutantStack& operator=(MutantStack const & src) {
+	MutantStack& operator=(MutantStack const & src)
+	{
 		std::stack<T>::operator=(src);
 		return *this;
 	}
