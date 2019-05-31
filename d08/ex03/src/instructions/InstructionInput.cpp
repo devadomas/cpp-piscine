@@ -8,4 +8,6 @@ InstructionInput&	InstructionInput::operator=(InstructionInput const &) { return
 void	InstructionInput::execute(MindOpen::memory_iterator& mit, MindOpen::memory_iterator&, MindOpen::memory_iterator&, MindOpen::instructions_iterator&)
 {
 	std::cin >> *mit;
+	if (std::cin.eof())
+		throw std::runtime_error("End of line found!");
 }
